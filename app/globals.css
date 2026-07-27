@@ -659,8 +659,9 @@
   --font-active: var(--font-nanum-gothic);
 }
 
+/* Space Grotesk 도 라틴 전용이라 geist 와 같은 이유로 Noto Sans KR 을 폴백에 둔다. */
 [data-font="space-grotesk"] {
-  --font-active: var(--font-space-grotesk);
+  --font-active: var(--font-space-grotesk), var(--font-noto-sans-kr);
   --font-mono-active: var(--font-space-mono);
 }
 

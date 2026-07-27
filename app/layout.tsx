@@ -74,9 +74,9 @@ const nanumGothic = localFont({
   display: "swap",
 });
 
-// Space Grotesk 는 라틴 전용(variable) — 한글 글리프가 없어 한글은 시스템
-// 폰트로 폴백된다. mono 페어링(Space Mono)과 함께 fonts/index.ts
-// "space-grotesk" 프리셋에서만 쓰인다.
+// Space Grotesk 는 라틴 전용(variable) — 한글 글리프가 없어 한글은 self-host 한
+// Noto Sans KR 로 폴백된다(app/globals.css 의 --font-active 체인). mono
+// 페어링(Space Mono)과 함께 fonts/index.ts "space-grotesk" 프리셋에서만 쓰인다.
 const spaceGrotesk = localFont({
   src: "../assets/fonts/space-grotesk/space-grotesk-latin-wght-normal.woff2",
   variable: "--font-space-grotesk",

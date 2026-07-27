@@ -31,7 +31,7 @@ export const FONT_PRESETS: FontPreset[] = [
   { name: "nanum-gothic", label: "Nanum Gothic", cssVariable: "--font-nanum-gothic" },
   {
     name: "space-grotesk",
-    label: "Space Grotesk (라틴 전용 — 한글은 시스템 폴백)",
+    label: "Space Grotesk (라틴 전용 — 한글은 Noto Sans KR)",
     cssVariable: "--font-space-grotesk",
   },
 ];
@@ -42,7 +42,8 @@ export const DEFAULT_FONT_PRESET = "geist";
 export const FONT_LICENSE_NOTE =
   "Geist · Noto Sans KR · IBM Plex Sans KR · Nanum Gothic · Space Grotesk — 모두 SIL Open Font License(OFL) 무료 폰트이며, " +
   "assets/fonts/ 에 self-host(woff2 내장)되어 폐쇄망에서도 외부 CDN 요청 없이 동작합니다. " +
-  "Space Grotesk 는 라틴 전용 폰트로 한글은 시스템 폰트로 폴백되며, mono 요소는 페어링 폰트인 Space Mono 로 함께 전환됩니다(다른 프리셋은 Geist Mono 유지).";
+  "라틴 전용 프리셋(Geist · Space Grotesk)의 한글은 방문자 OS 폰트가 아니라 self-host 한 Noto Sans KR 로 폴백되어 어디서나 같은 폭으로 렌더됩니다. " +
+  "Space Grotesk 프리셋은 mono 요소도 페어링 폰트인 Space Mono 로 함께 전환됩니다(다른 프리셋은 Geist Mono 유지).";
 
 export function getFontPreset(name: string): FontPreset | undefined {
   return FONT_PRESETS.find((preset) => preset.name === name);
