@@ -635,12 +635,16 @@
  * 프리셋은 이 변수를 건드리지 않으므로 Geist Mono 가 그대로 유지된다.
  */
 :root {
-  --font-active: var(--font-geist-sans);
+  --font-active: var(--font-geist-sans), var(--font-noto-sans-kr);
   --font-mono-active: var(--font-geist-mono);
 }
 
+/* Geist 는 라틴 전용이라 한글 글리프가 없다. 시스템 폰트로 폴백하면 OS 마다
+   글자 폭이 달라져(macOS Apple SD Gothic Neo vs Linux Noto Sans CJK) 좁은
+   구간 레이아웃이 깨지므로, self-host 한 Noto Sans KR 을 폴백으로 명시해
+   어디서나 동일한 폭으로 렌더한다. */
 [data-font="geist"] {
-  --font-active: var(--font-geist-sans);
+  --font-active: var(--font-geist-sans), var(--font-noto-sans-kr);
 }
 
 [data-font="noto-sans-kr"] {
