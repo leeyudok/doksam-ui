@@ -79,6 +79,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
+## Vercel Labs Agent Skills
+
+- Project: https://github.com/vercel-labs/agent-skills
+- License: MIT (declared in the upstream `README.md`; the repository ships no
+  `LICENSE` file, so no copyright line is reproduced here)
+
+The React/Next.js performance skill under `.agents/skills/vercel-react-best-practices/`
+was vendored by `npx skills add` and is committed so that every contributor and
+CI run resolves the same revision. It is agent guidance only and is not part of
+the published package or the shadcn registry output. The pinned revision hash is
+recorded in `skills-lock.json`.
+
 ## Fonts (SIL Open Font License 1.1)
 
 The following bundled fonts are licensed under the SIL Open Font License,
