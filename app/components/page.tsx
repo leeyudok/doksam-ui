@@ -11,7 +11,6 @@ import { COMPONENT_REGISTRY } from "@/lib/showcase/registry"
 import {
   COMPONENT_CATEGORY_LABEL,
   COMPONENT_CATEGORY_ORDER,
-  COMPONENT_LAYER_LABEL,
   type ComponentCategory,
   type ComponentLayer,
 } from "@/lib/showcase/types"
