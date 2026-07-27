@@ -1,5 +1,9 @@
 # doksam-ui
 
+[![CI](https://github.com/leeyudok/doksam-ui/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/leeyudok/doksam-ui/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+[![Node](https://img.shields.io/badge/node-%3E%3D22-brightgreen.svg)](./package.json)
+
 doksam 프로젝트 공통 UI 표준 — shadcn/ui 기반 컴포넌트·패턴·템플릿 카탈로그입니다.
 
 라이브: **https://ui.doksam.com**
