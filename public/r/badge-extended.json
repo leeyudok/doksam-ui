@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-extended",
+  "title": "Badge Extended",
+  "description": "shadcn Badge를 확장해 success/warning/danger 시맨틱 상태 variant를 추가한 컴포넌트. badge.tsx 원본은 건드리지 않고 badgeVariants만 재사용한다.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/badge-extended.tsx",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { badgeVariants } from \"@/components/ui/badge\"\nimport { cn } from \"@/lib/utils\"\n\nconst badgeExtendedVariants = cva(badgeVariants({ variant: \"outline\" }), {\n  variants: {\n    variant: {\n      success: \"border-transparent bg-success/10 text-success dark:bg-success/20\",\n      warning: \"border-transparent bg-warning/10 text-warning dark:bg-warning/20\",\n      danger: \"border-transparent bg-destructive/10 text-destructive dark:bg-destructive/20\",\n    },\n  },\n  defaultVariants: {\n    variant: \"success\",\n  },\n})\n\nexport interface BadgeExtendedProps\n  extends React.ComponentProps<\"span\">,\n    VariantProps<typeof badgeExtendedVariants> {}\n\n/**\n * shadcn Badge 확장 — success/warning/danger 시맨틱 상태 variant 추가.\n * components/ui/badge.tsx 원본은 건드리지 않고 그 base recipe(badgeVariants)만\n * 재사용하는 커스텀 패턴(#21). 색상은 항상 시맨틱 토큰(--success/--warning/--destructive)만\n * 사용한다 — 하드코딩된 팔레트 색(green-100 등)을 직접 넣지 않는다.\n */\nfunction BadgeExtended({ className, variant = \"success\", ...props }: Readonly<BadgeExtendedProps>) {\n  return (\n    <span\n      data-slot=\"badge\"\n      data-variant={variant}\n      className={cn(badgeExtendedVariants({ variant }), className)}\n      {...props}\n    />\n  )\n}\n\nexport { BadgeExtended, badgeExtendedVariants }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "finance-format-won",
+  "title": "Finance: Format Won",
+  "description": "원화 금액을 억/조 단위로 축약하는 유틸. 1억 미만은 천단위 콤마, 반올림 경계값(9,999.6억 등)을 조 단위로 안전하게 전환한다.",
+  "files": [
+    {
+      "path": "lib/finance/format-won.ts",
+      "content": "/**\n * 원화 금액 억/조 축약 유틸 (news `web/components/FlowPanel.tsx` eok() 이식, #18).\n *\n * 입력 단위는 \"원\" — 억(1e8)/조(1e12) 단위로 축약해 표시하고, 1억 미만은 원 단위\n * 그대로(천단위 콤마) 보여준다.\n *\n * 조 전환은 \"반올림 후 값\" 기준으로 판단한다 — 9,999.6억처럼 반올림하면 10,000억이\n * 되는 경계값을 먼저 걸러내지 않으면 \"10,000억\"으로 새어 나간다(원본 #56 버그).\n * 정확히는: 억 단위 절대값을 반올림한 정수가 10,000 이상이면 조로 변환한다.\n */\nexport function formatWon(won: number): string {\n  if (!Number.isFinite(won)) return \"-\";\n  if (won === 0) return \"0원\";\n\n  const abs = Math.abs(won);\n\n  if (abs < EOK) {\n    const rounded = Math.round(abs);\n    // 반올림 후 절대값이 0이면(예: -0.4) 부호를 붙이지 않는다 — \"-0원\" 방지.\n    const sign = won < 0 && rounded !== 0 ? \"-\" : \"\";\n    return `${sign}${rounded.toLocaleString()}원`;\n  }\n\n  const sign = won < 0 ? \"-\" : \"\";\n  const eok = abs / EOK;\n  const roundedEok = Math.round(eok);\n  if (roundedEok >= EOK_PER_JO) {\n    // toFixed는 콤마를 넣지 않으므로 정수부/소수부를 분리해 정수부만 toLocaleString으로 콤마 처리한다.\n    const jo = eok / EOK_PER_JO;\n    const [intPart, decPart] = jo.toFixed(1).split(\".\");\n    return `${sign}${Number(intPart).toLocaleString()}.${decPart}조`;\n  }\n  return `${sign}${roundedEok.toLocaleString()}억`;\n}\n\nconst EOK = 1e8;\nconst EOK_PER_JO = 10000;\n",
+      "type": "registry:lib"
+    }
+  ],
+  "type": "registry:lib"
+}

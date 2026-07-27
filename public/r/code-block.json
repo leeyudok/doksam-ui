@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block",
+  "title": "Code Block",
+  "description": "복사·라인번호 코드 블록.",
+  "registryDependencies": [
+    "https://ui.doksam.com/r/copy-button.json"
+  ],
+  "files": [
+    {
+      "path": "components/code-block.tsx",
+      "content": "import * as React from \"react\"\n\nimport { CopyButton } from \"@/components/copy-button\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface CodeBlockProps extends React.ComponentProps<\"div\"> {\n  code: string\n  /** 상단에 표시할 언어 라벨(문법 하이라이팅은 하지 않는다). */\n  language?: string\n  /** 왼쪽에 줄 번호를 붙일지 여부. */\n  showLineNumbers?: boolean\n}\n\n/**\n * pre/code 기반 순수 코드 블록(#36) — 외부 하이라이터 없이 폰트/줄바꿈만\n * 처리하고, 우상단에 CopyButton(#컴포넌트)을 얹는다. 옵션으로 줄 번호를\n * 붙일 수 있다.\n */\nfunction CodeBlock({ code, language, showLineNumbers = false, className, ...props }: Readonly<CodeBlockProps>) {\n  const lines = code.split(\"\\n\")\n\n  return (\n    <div\n      data-slot=\"code-block\"\n      className={cn(\"group/code-block relative overflow-hidden rounded-lg border border-border bg-card\", className)}\n      {...props}\n    >\n      {language && (\n        <div data-slot=\"code-block-language\" className=\"border-b border-border px-3 py-1.5 text-xs text-muted-foreground\">\n          {language}\n        </div>\n      )}\n      <div className=\"absolute top-1.5 right-1.5 opacity-0 transition-opacity group-hover/code-block:opacity-100 focus-within:opacity-100\">\n        <CopyButton value={code} label=\"복사\" />\n      </div>\n      <pre data-slot=\"code-block-pre\" className=\"overflow-x-auto p-3 text-sm\">\n        <code data-slot=\"code-block-code\" className=\"grid font-mono\">\n          {lines.map((line, index) => (\n            <span key={index} data-slot=\"code-block-line\" className=\"flex gap-3\">\n              {showLineNumbers && (\n                <span aria-hidden=\"true\" className=\"w-6 shrink-0 select-none text-right text-muted-foreground/60\">\n                  {index + 1}\n                </span>\n              )}\n              <span className=\"min-w-0 flex-1 whitespace-pre\">{line || \" \"}</span>\n            </span>\n          ))}\n        </code>\n      </pre>\n    </div>\n  )\n}\n\nexport { CodeBlock }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

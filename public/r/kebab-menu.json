@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kebab-menu",
+  "title": "Kebab Menu",
+  "description": "세로 점 3개(⋮) 아이콘 버튼을 누르면 액션 드롭다운이 열리는 케밥 메뉴. items 배열 하나로 메뉴를 선언하며, 아이콘 전용 트리거의 aria-label 누락을 label 필수 prop으로 강제한다.",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "registryDependencies": [
+    "button",
+    "dropdown-menu"
+  ],
+  "files": [
+    {
+      "path": "components/kebab-menu.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { DotsThreeVerticalIcon } from \"@phosphor-icons/react/dist/ssr\";\n\nimport { Button, buttonVariants } from \"@/components/ui/button\";\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuSeparator,\n  DropdownMenuTrigger,\n} from \"@/components/ui/dropdown-menu\";\nimport type { VariantProps } from \"class-variance-authority\";\n\ntype KebabMenuSize = Extract<\n  NonNullable<VariantProps<typeof buttonVariants>[\"size\"]>,\n  \"icon\" | \"icon-xs\" | \"icon-sm\"\n>;\n\nexport interface KebabMenuAction {\n  /** 메뉴 항목에 표시할 텍스트이자 접근 라벨. */\n  label: string;\n  /** 라벨 앞에 렌더링할 아이콘. */\n  icon?: React.ReactNode;\n  /** 항목 선택 시 실행할 콜백. */\n  onSelect: () => void;\n  /** \"destructive\" 는 삭제 등 파괴적 액션을 빨간색으로 강조한다. */\n  variant?: \"default\" | \"destructive\";\n  disabled?: boolean;\n}\n\n/** 액션 항목이거나, 그룹을 가르는 구분선. */\nexport type KebabMenuItem = KebabMenuAction | \"separator\";\n\nexport interface KebabMenuProps {\n  /** 트리거 버튼의 aria-label. 아이콘 전용 버튼의 라벨 누락을 타입으로 강제한다. */\n  label: string;\n  /** 메뉴에 렌더링할 항목 배열. \"separator\" 문자열은 구분선이 된다. */\n  items: KebabMenuItem[];\n  /** 메뉴 정렬. 기본 \"end\". */\n  align?: \"start\" | \"end\";\n  /** 트리거 아이콘 버튼 크기. 기본 \"icon\". */\n  size?: KebabMenuSize;\n}\n\n/**\n * 케밥 메뉴 — 세로 점 3개(⋮) 아이콘 버튼을 누르면 액션 드롭다운이 열린다.\n * `tooltip-icon-button`(#21)과 같은 철학으로, 아이콘 전용 트리거의 aria-label\n * 누락을 `label` 필수 prop 으로 구조적으로 막는다. 메뉴 구성은 `items` 배열\n * 하나로 선언하며, DropdownMenu 조립·접근성 처리는 이 컴포넌트가 담당한다.\n */\nfunction KebabMenu({ label, items, align = \"end\", size = \"icon\" }: Readonly<KebabMenuProps>) {\n  return (\n    <DropdownMenu>\n      <DropdownMenuTrigger asChild>\n        <Button type=\"button\" variant=\"ghost\" size={size} aria-label={label}>\n          <DotsThreeVerticalIcon weight=\"bold\" />\n        </Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent align={align}>\n        {items.map((item, index) =>\n          item === \"separator\" ? (\n            <DropdownMenuSeparator key={`separator-${index}`} />\n          ) : (\n            <DropdownMenuItem\n              key={item.label}\n              variant={item.variant}\n              disabled={item.disabled}\n              onSelect={item.onSelect}\n            >\n              {item.icon}\n              {item.label}\n            </DropdownMenuItem>\n          ),\n        )}\n      </DropdownMenuContent>\n    </DropdownMenu>\n  );\n}\n\nexport { KebabMenu };\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

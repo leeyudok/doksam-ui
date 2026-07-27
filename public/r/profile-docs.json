@@ -1,0 +1,60 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "profile-docs",
+  "title": "Profile: Docs",
+  "description": "문서·위키·블로그류 화면 프로필. theme=forest(차분한 그린) + font=IBM Plex Sans KR + defaultMode=light + radius=8px + density=comfortable — <html>에 data-density=\"comfortable\"을 지정한다(밀도 토큰 층은 /profiles의 적용 코드 참고). 폰트는 자동 설치되지 않는다 — assets/fonts/ibm-plex-kr/의 woff2를 복사하고 next/font/local로 layout.tsx에 연결해야 한다(폐쇄망 대응). 자세한 절차는 https://ui.doksam.com/rules 참고.",
+  "cssVars": {
+    "theme": {
+      "radius": "8px"
+    },
+    "light": {
+      "background": "oklch(0.985 0.004 152)",
+      "foreground": "oklch(0.21 0.02 152)",
+      "card": "oklch(0.995 0.002 152)",
+      "card-foreground": "oklch(0.21 0.02 152)",
+      "popover": "oklch(0.995 0.002 152)",
+      "popover-foreground": "oklch(0.21 0.02 152)",
+      "primary": "oklch(0.52 0.13 152)",
+      "primary-foreground": "oklch(0.98 0.01 152)",
+      "secondary": "oklch(0.94 0.02 152)",
+      "secondary-foreground": "oklch(0.28 0.03 152)",
+      "muted": "oklch(0.955 0.012 152)",
+      "muted-foreground": "oklch(0.5 0.03 152)",
+      "accent": "oklch(0.92 0.035 152)",
+      "accent-foreground": "oklch(0.28 0.03 152)",
+      "destructive": "oklch(0.58 0.22 27)",
+      "success": "oklch(0.55 0.15 152)",
+      "warning": "oklch(0.75 0.16 80)",
+      "gain": "oklch(0.58 0.22 27)",
+      "loss": "oklch(0.55 0.2 258)",
+      "border": "oklch(0.9 0.015 152)",
+      "input": "oklch(0.9 0.015 152)",
+      "ring": "oklch(0.52 0.13 152)"
+    },
+    "dark": {
+      "background": "oklch(0.19 0.016 152)",
+      "foreground": "oklch(0.95 0.008 152)",
+      "card": "oklch(0.225 0.018 152)",
+      "card-foreground": "oklch(0.95 0.008 152)",
+      "popover": "oklch(0.225 0.018 152)",
+      "popover-foreground": "oklch(0.95 0.008 152)",
+      "primary": "oklch(0.68 0.16 152)",
+      "primary-foreground": "oklch(0.15 0.02 152)",
+      "secondary": "oklch(0.28 0.02 152)",
+      "secondary-foreground": "oklch(0.95 0.008 152)",
+      "muted": "oklch(0.26 0.016 152)",
+      "muted-foreground": "oklch(0.66 0.025 152)",
+      "accent": "oklch(0.31 0.028 152)",
+      "accent-foreground": "oklch(0.95 0.008 152)",
+      "destructive": "oklch(0.7 0.19 27)",
+      "success": "oklch(0.72 0.15 152)",
+      "warning": "oklch(0.8 0.15 80)",
+      "gain": "oklch(0.7 0.19 27)",
+      "loss": "oklch(0.72 0.16 254)",
+      "border": "oklch(1 0 0 / 12%)",
+      "input": "oklch(1 0 0 / 16%)",
+      "ring": "oklch(0.68 0.16 152)"
+    }
+  },
+  "type": "registry:theme"
+}

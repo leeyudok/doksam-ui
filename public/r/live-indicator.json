@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "live-indicator",
+  "title": "Live Indicator",
+  "description": "live/paused/stale/offline 상태를 펄스 도트와 갱신 시각으로 보여주는 실시간 상태 인디케이터.",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "components/live-indicator.tsx",
+      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport type LiveIndicatorStatus = \"live\" | \"paused\" | \"stale\" | \"offline\"\n\nexport interface LiveIndicatorProps extends Omit<React.ComponentProps<\"span\">, \"children\"> {\n  /** 현재 연결 상태. live=정상 수신, paused=일시정지, stale=지연, offline=끊김. */\n  status: LiveIndicatorStatus\n  /** 표시 라벨. 생략하면 status별 기본 라벨(LIVE/일시정지/지연/오프라인). */\n  label?: string\n  /** 마지막 갱신 시각. \"HH:MM:SS 갱신\" 고정 포맷으로 표시(로케일 비의존). */\n  updatedAt?: Date | string\n  /** 도트·글자 크기. 기본 default. */\n  size?: \"sm\" | \"default\"\n}\n\nconst DEFAULT_LABEL: Record<LiveIndicatorStatus, string> = {\n  live: \"LIVE\",\n  paused: \"일시정지\",\n  stale: \"지연\",\n  offline: \"오프라인\",\n}\n\nconst DOT_CLASS: Record<LiveIndicatorStatus, string> = {\n  live: \"bg-success\",\n  paused: \"bg-muted-foreground\",\n  stale: \"bg-warning\",\n  offline: \"bg-muted-foreground/60\",\n}\n\nconst TEXT_CLASS: Record<LiveIndicatorStatus, string> = {\n  live: \"text-success\",\n  paused: \"text-muted-foreground\",\n  stale: \"text-warning\",\n  offline: \"text-muted-foreground\",\n}\n\nfunction pad2(n: number): string {\n  return n < 10 ? `0${n}` : `${n}`\n}\n\nfunction fmtUpdatedAt(value: Date | string): string {\n  const d = typeof value === \"string\" ? new Date(value) : value\n  if (Number.isNaN(d.getTime())) return \"\"\n  return `${pad2(d.getHours())}:${pad2(d.getMinutes())}:${pad2(d.getSeconds())} 갱신`\n}\n\n/**\n * 실시간 상태 인디케이터(#50) — ews LiveSignalFeed.js의 LIVE 펄스 도트 + 갱신 시각\n * 표기부만 분리 이식. 폴링 로직은 옮기지 않고 status를 외부에서 주입받는 순수\n * 프레젠테이션 컴포넌트로 재구성했다. live 상태만 이중 원 펄스 애니메이션이 돈다\n * (CSS전용, 서버 컴포넌트로도 사용 가능). 색은 항상 시맨틱 토큰\n * (--success/--warning/--muted-foreground)만 사용한다.\n */\nfunction LiveIndicator({\n  status,\n  label,\n  updatedAt,\n  size = \"default\",\n  className,\n  ...props\n}: Readonly<LiveIndicatorProps>) {\n  const text = label ?? DEFAULT_LABEL[status]\n  const updatedText = updatedAt ? fmtUpdatedAt(updatedAt) : \"\"\n  const dotSize = size === \"sm\" ? \"size-1.5\" : \"size-2\"\n  const fontSize = size === \"sm\" ? \"text-[11px]\" : \"text-xs\"\n\n  return (\n    <span\n      data-slot=\"live-indicator\"\n      data-status={status}\n      className={cn(\"inline-flex items-center gap-1.5 font-medium\", fontSize, TEXT_CLASS[status], className)}\n      {...props}\n    >\n      <span className={cn(\"relative inline-flex\", dotSize)}>\n        {status === \"live\" && (\n          <span\n            className={cn(\"absolute inline-flex h-full w-full animate-ping rounded-full opacity-75\", DOT_CLASS[status])}\n          />\n        )}\n        <span className={cn(\"relative inline-flex rounded-full\", dotSize, DOT_CLASS[status])} />\n      </span>\n      <span>\n        {text}\n        {updatedText ? ` · ${updatedText}` : \"\"}\n      </span>\n    </span>\n  )\n}\n\nexport { LiveIndicator }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

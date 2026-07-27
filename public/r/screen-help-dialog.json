@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "screen-help-dialog",
+  "title": "Screen Help Dialog",
+  "description": "화면 제목 옆 (?) 버튼을 누르면 뜨는 화면 매뉴얼 다이얼로그. shadcn Dialog + Button(asChild) 조합 커스텀 패턴.",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "registryDependencies": [
+    "button",
+    "dialog"
+  ],
+  "files": [
+    {
+      "path": "components/screen-help-dialog.tsx",
+      "content": "\"use client\"\n\nimport { QuestionIcon } from \"@phosphor-icons/react/dist/ssr\"\n\nimport { Button } from \"@/components/ui/button\"\nimport {\n  Dialog,\n  DialogContent,\n  DialogDescription,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from \"@/components/ui/dialog\"\n\n/** {@link ScreenHelpDialog}에 넘기는 화면 매뉴얼 항목 하나(제목 + 본문). */\nexport interface ScreenHelpItem {\n  title: string\n  body: string\n}\n\ninterface ScreenHelpDialogProps {\n  title: string\n  description: string\n  items: ScreenHelpItem[]\n}\n\n/**\n * 화면 제목 옆 (?) 버튼 → 화면 매뉴얼 다이얼로그.\n * shadcn Dialog + Button(asChild)을 조합한 커스텀 패턴 — components/ui/ 원본은 건드리지 않는다.\n * bizinfo `screen-help-dialog.tsx` 이식(#8).\n */\nexport function ScreenHelpDialog({ title, description, items }: Readonly<ScreenHelpDialogProps>) {\n  return (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button type=\"button\" variant=\"ghost\" size=\"icon-sm\" aria-label=\"화면 매뉴얼\">\n          <QuestionIcon className=\"size-5\" />\n        </Button>\n      </DialogTrigger>\n      <DialogContent>\n        <DialogHeader>\n          <DialogTitle>{title}</DialogTitle>\n          <DialogDescription>{description}</DialogDescription>\n        </DialogHeader>\n        <dl className=\"flex flex-col gap-3\">\n          {items.map((item) => (\n            <div key={item.title}>\n              <dt className=\"text-sm font-medium\">{item.title}</dt>\n              <dd className=\"text-sm text-muted-foreground\">{item.body}</dd>\n            </div>\n          ))}\n        </dl>\n      </DialogContent>\n    </Dialog>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

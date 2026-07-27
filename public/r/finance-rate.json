@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "finance-rate",
+  "title": "Finance: Rate",
+  "description": "등락률/등락액 표시 유틸. 한국식 시세 관례로 상승은 gain(빨강), 하락은 loss(파랑) 시맨틱 토큰을 사용한다. themes/*.ts에 gain/loss 토큰이 정의돼 있어야 한다.",
+  "files": [
+    {
+      "path": "lib/finance/rate.ts",
+      "content": "/**\n * 등락률/등락액 표시 유틸 (tossinvest `frontend/lib/utils.ts` 이식, #18).\n * 한국식 시세 관례 — 이익/상승은 빨강(gain), 손실/하락은 파랑(loss).\n * 색은 항상 시맨틱 토큰(--gain/--loss, themes/*.ts)에서 해소한다 — 하드코딩 색 금지.\n */\n\n/** 부호에 따라 gain/loss 시맨틱 색 텍스트 클래스를 반환한다. 0은 중립(muted-foreground). */\nexport function rateColor(n: number): string {\n  if (n > 0) return \"text-gain\";\n  if (n < 0) return \"text-loss\";\n  return \"text-muted-foreground\";\n}\n\n/**\n * 부호를 붙인 등락률/등락액 텍스트를 만든다.\n * 양수는 \"+\" 접두를 붙이고, 음수는 toFixed 가 만드는 \"-\"를 그대로 쓰고, 0은 부호 없이 표기한다.\n */\nexport function rateText(n: number, digits = 2): string {\n  const sign = n > 0 ? \"+\" : \"\";\n  return `${sign}${n.toFixed(digits)}`;\n}\n\n/** 양수에만 \"+\" 접두를 반환한다 — 이미 포맷된 숫자 문자열 앞에 붙이는 용도. */\nexport function rateSign(n: number): string {\n  return n > 0 ? \"+\" : \"\";\n}\n",
+      "type": "registry:lib"
+    }
+  ],
+  "type": "registry:lib"
+}

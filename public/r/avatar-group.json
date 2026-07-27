@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-group",
+  "title": "Avatar Group",
+  "description": "겹친 아바타 스택+N.",
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "components/avatar-group.tsx",
+      "content": "import * as React from \"react\"\n\nimport {\n  Avatar,\n  AvatarFallback,\n  AvatarGroup as AvatarGroupStack,\n  AvatarGroupCount,\n} from \"@/components/ui/avatar\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface AvatarGroupUser {\n  /** 표시 이름. Fallback 이니셜을 자동 생성하는 데도 쓰인다. */\n  name: string\n  /** 이니셜을 직접 지정하고 싶을 때. 생략하면 name 앞 2글자를 쓴다. */\n  fallback?: string\n}\n\nexport interface AvatarGroupProps extends React.ComponentProps<\"div\"> {\n  users: AvatarGroupUser[]\n  /** 겹쳐서 보여줄 최대 인원. 초과분은 \"+N\"으로 축약. 기본 4. */\n  max?: number\n  size?: \"default\" | \"sm\" | \"lg\"\n}\n\nfunction initialsOf(name: string) {\n  return name.trim().slice(0, 2)\n}\n\n/**\n * 스택형 아바타 그룹(#36) — users 목록을 max개까지 겹쳐 보여주고 초과 인원은\n * \"+N\"으로 축약한다. components/ui/avatar.tsx의 AvatarGroup/AvatarGroupCount\n * 프리미티브를 그대로 재사용하는 고수준 래퍼. 외부 이미지 없이 이니셜\n * Fallback만 사용한다.\n */\nfunction AvatarGroup({ users, max = 4, size = \"default\", className, ...props }: Readonly<AvatarGroupProps>) {\n  const visible = users.slice(0, max)\n  const overflow = users.length - visible.length\n\n  return (\n    <AvatarGroupStack data-slot=\"avatar-group\" data-size={size} className={cn(className)} {...props}>\n      {visible.map((user, index) => (\n        <Avatar key={`${user.name}-${index}`} size={size}>\n          <AvatarFallback aria-label={user.name}>{user.fallback ?? initialsOf(user.name)}</AvatarFallback>\n        </Avatar>\n      ))}\n      {overflow > 0 && <AvatarGroupCount>+{overflow}</AvatarGroupCount>}\n    </AvatarGroupStack>\n  )\n}\n\nexport { AvatarGroup }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

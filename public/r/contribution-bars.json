@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "contribution-bars",
+  "title": "Contribution Bars",
+  "description": "요인별 기여도를 트랙 바와 퍼센트로 분해해 보여주는 SHAP 스타일 기여도 패널.",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "components/contribution-bars.tsx",
+      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\n/** 기여 요인 1건 — 라벨·기여도(0~100)·종류. */\nexport interface ContributionFactor {\n  /** 요인 이름(예: \"매출 감소\"). */\n  label: string\n  /** 기여도, 0~100 사이 값. 트랙바 길이와 퍼센트 표기에 그대로 쓰인다. */\n  value: number\n  /** 요인 종류. 색 구분·kindColors 매칭 키로 쓰인다. 생략 시 기본 그룹으로 묶인다. */\n  kind?: string\n}\n\nexport interface ContributionBarsProps extends Omit<React.ComponentProps<\"div\">, \"children\"> {\n  /** 표시할 기여 요인 목록. */\n  factors: ContributionFactor[]\n  /** kind별 바 색 클래스(예: \"bg-chart-2\"). 생략한 kind는 chart-1~5 토큰을 등장 순서대로 순환 배정한다. */\n  kindColors?: Record<string, string>\n  /** true면 value 내림차순으로 정렬해 보여준다. 기본 false(입력 순서 유지). */\n  sort?: boolean\n}\n\nconst DEFAULT_KIND = \"__default__\"\n\nconst CHART_CLASSES = [\"bg-chart-1\", \"bg-chart-2\", \"bg-chart-3\", \"bg-chart-4\", \"bg-chart-5\"]\n\n/**\n * 요인 기여도 분해 바(#50) — ews `XaiPanel`(SHAP 스타일 기여도 시각화)을 이식.\n * 라벨 · 트랙바 · 퍼센트의 3단 리스트로 각 요인의 기여도를 보여주고,\n * kind(요인 종류)별로 바 색을 구분한다. 상호작용이 없는 순수 프레젠테이션이라\n * 서버 컴포넌트로 동작한다. 구조 색(트랙 배경)은 시맨틱 토큰, 바 색은\n * chart-1~5 토큰만 사용하며 kindColors로 특정 kind의 색만 오버라이드할 수 있다.\n *\n * 원본: ews/web/components/XaiPanel.js\n */\nfunction ContributionBars({\n  factors,\n  kindColors,\n  sort = false,\n  className,\n  ...props\n}: Readonly<ContributionBarsProps>) {\n  const list = sort ? [...factors].sort((a, b) => b.value - a.value) : factors\n\n  const kindOrder: string[] = []\n  for (const f of factors) {\n    const k = f.kind ?? DEFAULT_KIND\n    if (!kindOrder.includes(k)) kindOrder.push(k)\n  }\n\n  const colorOf = (kind?: string) => {\n    const k = kind ?? DEFAULT_KIND\n    if (kindColors?.[k]) return kindColors[k]\n    const idx = kindOrder.indexOf(k)\n    return CHART_CLASSES[idx % CHART_CLASSES.length]\n  }\n\n  return (\n    <div data-slot=\"contribution-bars\" className={cn(\"flex flex-col gap-2\", className)} {...props}>\n      <ul className=\"flex flex-col gap-2\">\n        {list.map((f, i) => {\n          const pct = Math.round(Math.min(100, Math.max(0, f.value)))\n          return (\n            <li\n              key={`${f.label}-${i}`}\n              className=\"grid grid-cols-[minmax(0,7rem)_1fr_2.75rem] items-center gap-3 text-sm\"\n            >\n              <span className=\"truncate text-muted-foreground\" title={f.label}>\n                {f.label}\n              </span>\n              <span className=\"relative h-2 overflow-hidden rounded-full bg-muted\">\n                <span\n                  className={cn(\"absolute inset-y-0 left-0 rounded-full\", colorOf(f.kind))}\n                  style={{ width: `${pct}%` }}\n                />\n              </span>\n              <span className=\"text-right font-mono text-xs font-semibold tabular-nums text-foreground\">\n                {pct}%\n              </span>\n            </li>\n          )\n        })}\n      </ul>\n    </div>\n  )\n}\n\nexport { ContributionBars }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

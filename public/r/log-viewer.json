@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "log-viewer",
+  "title": "Log Viewer",
+  "description": "레벨별 색+배경(info/debug/warn/error), 반복 카운트 배지, 그룹 들여쓰기를 갖춘 로그 뷰어. 관측성 패턴 코어.",
+  "files": [
+    {
+      "path": "components/log-viewer.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\n\nexport type LogLevel = \"info\" | \"debug\" | \"warn\" | \"error\"\n\nexport interface LogEntry {\n  id: string\n  time: string\n  level: LogLevel\n  group: number\n  message: string\n  count?: number\n}\n\nconst LEVEL_STYLE: Record<LogLevel, string> = {\n  info: \"bg-muted text-muted-foreground\",\n  debug: \"bg-primary/10 text-primary\",\n  warn: \"bg-warning/15 text-warning\",\n  error: \"bg-destructive/15 text-destructive\",\n}\n\nconst LEVEL_LABEL: Record<LogLevel, string> = {\n  info: \"INFO\",\n  debug: \"DEBUG\",\n  warn: \"WARN\",\n  error: \"ERROR\",\n}\n\nconst ROW_TONE: Record<LogLevel, string> = {\n  info: \"\",\n  debug: \"\",\n  warn: \"bg-warning/5\",\n  error: \"bg-destructive/5\",\n}\n\nexport interface LogViewerProps {\n  /** 표시할 로그 엔트리 목록. */\n  entries: LogEntry[]\n  className?: string\n}\n\n/**\n * 레벨별 색+배경, 반복 카운트 배지, 그룹 들여쓰기를 갖춘 로그 뷰어(#26).\n * components/patterns/log-viewer/log-viewer-demo.tsx 에 묶여있던 재사용 코어를 순수\n * 컴포넌트로 추출해 shadcn 레지스트리 item(log-viewer)으로 배포한다.\n */\nexport function LogViewer({ entries, className }: Readonly<LogViewerProps>) {\n  return (\n    <div className={cn(\"w-full overflow-x-auto rounded-md border border-border\", className)}>\n      <ul className=\"flex flex-col divide-y divide-border font-mono text-xs\">\n        {entries.map((entry) => (\n          <li\n            key={entry.id}\n            className={cn(\"flex items-start gap-2 px-3 py-1.5\", ROW_TONE[entry.level])}\n          >\n            <span className=\"shrink-0 tabular-nums text-muted-foreground\">{entry.time}</span>\n            <span\n              className={cn(\n                \"shrink-0 rounded px-1.5 py-0.5 text-center text-[10px] font-semibold tracking-wide\",\n                \"min-w-[3.25rem]\",\n                LEVEL_STYLE[entry.level],\n              )}\n            >\n              {LEVEL_LABEL[entry.level]}\n            </span>\n            <span\n              className=\"flex-1 text-foreground\"\n              style={entry.group > 0 ? { paddingLeft: entry.group * 16 } : undefined}\n            >\n              {entry.message}\n            </span>\n            {entry.count !== undefined && entry.count > 1 && (\n              <span className=\"shrink-0 rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-medium tabular-nums text-muted-foreground\">\n                ×{entry.count}\n              </span>\n            )}\n          </li>\n        ))}\n      </ul>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

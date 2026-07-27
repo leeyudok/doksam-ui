@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip-icon-button",
+  "title": "Tooltip Icon Button",
+  "description": "아이콘 전용 버튼 — Tooltip 래핑과 aria-label을 tip 하나로 강제해서 접근성 실수를 구조적으로 막는다. app/layout.tsx 최상단에 TooltipProvider가 이미 있어야 한다.",
+  "registryDependencies": [
+    "button",
+    "tooltip"
+  ],
+  "files": [
+    {
+      "path": "components/tooltip-icon-button.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Button, buttonVariants } from \"@/components/ui/button\"\nimport { Tooltip, TooltipContent, TooltipTrigger } from \"@/components/ui/tooltip\"\nimport type { VariantProps } from \"class-variance-authority\"\n\ntype IconButtonSize = Extract<\n  NonNullable<VariantProps<typeof buttonVariants>[\"size\"]>,\n  \"icon\" | \"icon-xs\" | \"icon-sm\" | \"icon-lg\"\n>\n\nexport interface TooltipIconButtonProps\n  extends Omit<React.ComponentProps<typeof Button>, \"size\" | \"children\"> {\n  /** 툴팁 텍스트이자 스크린리더용 접근 라벨. Button의 aria-label로도 그대로 전달된다. */\n  tip: string\n  /** 버튼 안에 렌더링할 아이콘. */\n  icon: React.ReactNode\n  size?: IconButtonSize\n}\n\n/**\n * 아이콘 전용 버튼 — Tooltip 래핑과 aria-label 을 강제한다(#21).\n * 아이콘만 있고 텍스트 레이블이 없는 버튼은 스크린리더·마우스 사용자 모두에게\n * 의미를 알려줄 방법이 없어지기 쉽다. 이 컴포넌트는 `tip` 하나로 툴팁 텍스트와\n * aria-label 을 동시에 채워서 그 실수를 구조적으로 막는다.\n * TooltipProvider 는 app/layout.tsx 최상단에 이미 있으므로 별도로 감쌀 필요 없다.\n */\nfunction TooltipIconButton({\n  tip,\n  icon,\n  variant = \"ghost\",\n  size = \"icon\",\n  ...props\n}: Readonly<TooltipIconButtonProps>) {\n  return (\n    <Tooltip>\n      <TooltipTrigger asChild>\n        <Button type=\"button\" variant={variant} size={size} aria-label={tip} {...props}>\n          {icon}\n        </Button>\n      </TooltipTrigger>\n      <TooltipContent>{tip}</TooltipContent>\n    </Tooltip>\n  )\n}\n\nexport { TooltipIconButton }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

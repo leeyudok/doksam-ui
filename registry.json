@@ -1,0 +1,1656 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "doksam-ui",
+  "homepage": "https://ui.doksam.com",
+  "items": [
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "badge-extended",
+      "type": "registry:component",
+      "title": "Badge Extended",
+      "description": "shadcn Badge를 확장해 success/warning/danger 시맨틱 상태 variant를 추가한 컴포넌트. badge.tsx 원본은 건드리지 않고 badgeVariants만 재사용한다.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "components/badge-extended.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "copy-button",
+      "type": "registry:component",
+      "title": "Copy Button",
+      "description": "navigator.clipboard로 텍스트를 복사하고 잠깐 \"복사됨\" 피드백을 보여주는 버튼.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/copy-button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "kebab-menu",
+      "type": "registry:component",
+      "title": "Kebab Menu",
+      "description": "세로 점 3개(⋮) 아이콘 버튼을 누르면 액션 드롭다운이 열리는 케밥 메뉴. items 배열 하나로 메뉴를 선언하며, 아이콘 전용 트리거의 aria-label 누락을 label 필수 prop으로 강제한다.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "registryDependencies": [
+        "button",
+        "dropdown-menu"
+      ],
+      "files": [
+        {
+          "path": "components/kebab-menu.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "tooltip-icon-button",
+      "type": "registry:component",
+      "title": "Tooltip Icon Button",
+      "description": "아이콘 전용 버튼 — Tooltip 래핑과 aria-label을 tip 하나로 강제해서 접근성 실수를 구조적으로 막는다. app/layout.tsx 최상단에 TooltipProvider가 이미 있어야 한다.",
+      "registryDependencies": [
+        "button",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "components/tooltip-icon-button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "table-sortable",
+      "type": "registry:component",
+      "title": "Table Sortable",
+      "description": "고정 헤더 + 스크롤 바디를 가진 제네릭 데이터 그리드. 컬럼 헤더 클릭 정렬(@tanstack/react-table), 행 드래그 순서 변경(@dnd-kit), 컬럼 표시/숨김 토글을 지원한다.",
+      "dependencies": [
+        "@tanstack/react-table",
+        "@dnd-kit/core",
+        "@dnd-kit/sortable",
+        "@dnd-kit/utilities",
+        "@phosphor-icons/react"
+      ],
+      "registryDependencies": [
+        "button",
+        "dropdown-menu",
+        "table"
+      ],
+      "files": [
+        {
+          "path": "components/table-sortable.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "screen-help-dialog",
+      "type": "registry:component",
+      "title": "Screen Help Dialog",
+      "description": "화면 제목 옆 (?) 버튼을 누르면 뜨는 화면 매뉴얼 다이얼로그. shadcn Dialog + Button(asChild) 조합 커스텀 패턴.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "registryDependencies": [
+        "button",
+        "dialog"
+      ],
+      "files": [
+        {
+          "path": "components/screen-help-dialog.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "region-map",
+      "type": "registry:component",
+      "title": "Region Map",
+      "description": "한국 시/도 분포 지도 — 지리 지도(hover 3D 돌출·리치 툴팁) ↔ 타일 카토그램 토글. 색은 primary 토큰에서 파생되어 테마 프리셋에 자동 대응한다.",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/patterns/dataviz/region-map/region-map.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/patterns/dataviz/region-map/cartogram.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/patterns/dataviz/region-map/shared.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/patterns/dataviz/region-map/korea-map-paths.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/patterns/dataviz/region-map/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "json-tree",
+      "type": "registry:component",
+      "title": "JSON Tree",
+      "description": "재귀 JSON 트리 뷰어 — 접기/펼치기, 타입별 색(chart-1~3 시맨틱 토큰), 대용량 배열은 20개씩 \"더 보기\"로 분할 렌더링한다. 관측성(observability) 패턴 코어.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "components/json-tree.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "log-viewer",
+      "type": "registry:component",
+      "title": "Log Viewer",
+      "description": "레벨별 색+배경(info/debug/warn/error), 반복 카운트 배지, 그룹 들여쓰기를 갖춘 로그 뷰어. 관측성 패턴 코어.",
+      "files": [
+        {
+          "path": "components/log-viewer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "request-inspector",
+      "type": "registry:component",
+      "title": "Request Inspector",
+      "description": "요청 목록 + 클릭 시 Accordion으로 펼치는 Headers/Query/Payload/Response 상세 인스펙터. 4xx/5xx 상태는 색으로 강조하고 cURL 명령을 바로 복사할 수 있다. 관측성 패턴 코어.",
+      "registryDependencies": [
+        "accordion",
+        "badge",
+        "https://ui.doksam.com/r/copy-button.json"
+      ],
+      "files": [
+        {
+          "path": "components/request-inspector.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "finance-rate",
+      "type": "registry:lib",
+      "title": "Finance: Rate",
+      "description": "등락률/등락액 표시 유틸. 한국식 시세 관례로 상승은 gain(빨강), 하락은 loss(파랑) 시맨틱 토큰을 사용한다. themes/*.ts에 gain/loss 토큰이 정의돼 있어야 한다.",
+      "files": [
+        {
+          "path": "lib/finance/rate.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "finance-format-won",
+      "type": "registry:lib",
+      "title": "Finance: Format Won",
+      "description": "원화 금액을 억/조 단위로 축약하는 유틸. 1억 미만은 천단위 콤마, 반올림 경계값(9,999.6억 등)을 조 단위로 안전하게 전환한다.",
+      "files": [
+        {
+          "path": "lib/finance/format-won.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "finance-normalize-color",
+      "type": "registry:lib",
+      "title": "Finance: Normalize Color",
+      "description": "oklch() 등 CSS 색상값을 hex로 정규화하는 유틸. lightweight-charts 등 CSS를 직접 파싱하지 못하는 캔버스/서드파티 렌더러에 시맨틱 토큰 색을 넘길 때 쓴다. 테마 전환 감지용 observeColorScheme도 포함한다.",
+      "files": [
+        {
+          "path": "lib/finance/normalize-color.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "format-biz-no",
+      "type": "registry:lib",
+      "title": "Format Biz No",
+      "description": "사업자등록번호를 000-00-00000 형태로 포맷하는 화면 표시 전용 유틸. 저장/전송용 원본 값은 이 함수를 거치지 않는다.",
+      "files": [
+        {
+          "path": "lib/bizinfo/format-biz-no.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "profile-admin",
+      "type": "registry:theme",
+      "title": "Profile: Admin",
+      "description": "내부 관리자 도구·백오피스 화면 프로필. theme=slate(무채색 뉴트럴) + font=Geist + defaultMode=light + radius=6px + density=compact — <html>에 data-density=\"compact\"를 지정한다(밀도 토큰 층은 /profiles의 적용 코드 참고). 폰트는 자동 설치되지 않는다 — assets/fonts/geist/의 woff2를 복사하고 next/font/local로 layout.tsx에 연결해야 한다(폐쇄망 대응, next/font/google 미사용). 자세한 절차는 https://ui.doksam.com/rules 참고.",
+      "cssVars": {
+        "theme": {
+          "radius": "6px"
+        },
+        "light": {
+          "background": "oklch(0.985 0.002 240)",
+          "foreground": "oklch(0.21 0.006 240)",
+          "card": "oklch(0.995 0.001 240)",
+          "card-foreground": "oklch(0.21 0.006 240)",
+          "popover": "oklch(0.995 0.001 240)",
+          "popover-foreground": "oklch(0.21 0.006 240)",
+          "primary": "oklch(0.32 0.014 240)",
+          "primary-foreground": "oklch(0.98 0.002 240)",
+          "secondary": "oklch(0.94 0.006 240)",
+          "secondary-foreground": "oklch(0.28 0.01 240)",
+          "muted": "oklch(0.955 0.004 240)",
+          "muted-foreground": "oklch(0.5 0.012 240)",
+          "accent": "oklch(0.92 0.008 240)",
+          "accent-foreground": "oklch(0.28 0.01 240)",
+          "destructive": "oklch(0.58 0.22 27)",
+          "success": "oklch(0.55 0.15 152)",
+          "warning": "oklch(0.75 0.16 80)",
+          "gain": "oklch(0.58 0.22 27)",
+          "loss": "oklch(0.55 0.2 258)",
+          "border": "oklch(0.9 0.006 240)",
+          "input": "oklch(0.9 0.006 240)",
+          "ring": "oklch(0.32 0.014 240)"
+        },
+        "dark": {
+          "background": "oklch(0.19 0.005 240)",
+          "foreground": "oklch(0.95 0.003 240)",
+          "card": "oklch(0.225 0.006 240)",
+          "card-foreground": "oklch(0.95 0.003 240)",
+          "popover": "oklch(0.225 0.006 240)",
+          "popover-foreground": "oklch(0.95 0.003 240)",
+          "primary": "oklch(0.75 0.014 240)",
+          "primary-foreground": "oklch(0.16 0.006 240)",
+          "secondary": "oklch(0.28 0.008 240)",
+          "secondary-foreground": "oklch(0.95 0.003 240)",
+          "muted": "oklch(0.26 0.006 240)",
+          "muted-foreground": "oklch(0.66 0.01 240)",
+          "accent": "oklch(0.31 0.01 240)",
+          "accent-foreground": "oklch(0.95 0.003 240)",
+          "destructive": "oklch(0.7 0.19 27)",
+          "success": "oklch(0.72 0.15 152)",
+          "warning": "oklch(0.8 0.15 80)",
+          "gain": "oklch(0.7 0.19 27)",
+          "loss": "oklch(0.72 0.16 254)",
+          "border": "oklch(1 0 0 / 12%)",
+          "input": "oklch(1 0 0 / 16%)",
+          "ring": "oklch(0.75 0.014 240)"
+        }
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "profile-service",
+      "type": "registry:theme",
+      "title": "Profile: Service",
+      "description": "대외 서비스·고객 대면 화면 프로필. theme=ocean(신뢰감 있는 블루) + font=Noto Sans KR + defaultMode=light + radius=10px + density=comfortable — <html>에 data-density=\"comfortable\"을 지정한다(밀도 토큰 층은 /profiles의 적용 코드 참고). 폰트는 자동 설치되지 않는다 — assets/fonts/noto-sans-kr/의 woff2를 복사하고 next/font/local로 layout.tsx에 연결해야 한다(폐쇄망 대응). 자세한 절차는 https://ui.doksam.com/rules 참고.",
+      "cssVars": {
+        "theme": {
+          "radius": "10px"
+        },
+        "light": {
+          "background": "oklch(0.985 0.004 262)",
+          "foreground": "oklch(0.21 0.02 262)",
+          "card": "oklch(0.995 0.002 262)",
+          "card-foreground": "oklch(0.21 0.02 262)",
+          "popover": "oklch(0.995 0.002 262)",
+          "popover-foreground": "oklch(0.21 0.02 262)",
+          "primary": "oklch(0.53 0.21 262)",
+          "primary-foreground": "oklch(0.98 0.01 262)",
+          "secondary": "oklch(0.94 0.02 262)",
+          "secondary-foreground": "oklch(0.28 0.03 262)",
+          "muted": "oklch(0.955 0.012 262)",
+          "muted-foreground": "oklch(0.5 0.03 262)",
+          "accent": "oklch(0.92 0.035 262)",
+          "accent-foreground": "oklch(0.28 0.03 262)",
+          "destructive": "oklch(0.58 0.22 27)",
+          "success": "oklch(0.55 0.15 152)",
+          "warning": "oklch(0.75 0.16 80)",
+          "gain": "oklch(0.58 0.22 27)",
+          "loss": "oklch(0.55 0.2 258)",
+          "border": "oklch(0.9 0.015 262)",
+          "input": "oklch(0.9 0.015 262)",
+          "ring": "oklch(0.53 0.21 262)"
+        },
+        "dark": {
+          "background": "oklch(0.19 0.018 262)",
+          "foreground": "oklch(0.95 0.008 262)",
+          "card": "oklch(0.225 0.02 262)",
+          "card-foreground": "oklch(0.95 0.008 262)",
+          "popover": "oklch(0.225 0.02 262)",
+          "popover-foreground": "oklch(0.95 0.008 262)",
+          "primary": "oklch(0.68 0.18 262)",
+          "primary-foreground": "oklch(0.15 0.02 262)",
+          "secondary": "oklch(0.28 0.02 262)",
+          "secondary-foreground": "oklch(0.95 0.008 262)",
+          "muted": "oklch(0.26 0.018 262)",
+          "muted-foreground": "oklch(0.66 0.025 262)",
+          "accent": "oklch(0.31 0.03 262)",
+          "accent-foreground": "oklch(0.95 0.008 262)",
+          "destructive": "oklch(0.7 0.19 27)",
+          "success": "oklch(0.72 0.15 152)",
+          "warning": "oklch(0.8 0.15 80)",
+          "gain": "oklch(0.7 0.19 27)",
+          "loss": "oklch(0.72 0.16 254)",
+          "border": "oklch(1 0 0 / 12%)",
+          "input": "oklch(1 0 0 / 16%)",
+          "ring": "oklch(0.68 0.18 262)"
+        }
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "profile-data",
+      "type": "registry:theme",
+      "title": "Profile: Data",
+      "description": "데이터 대시보드·시세/뉴스류 화면 프로필. theme=violet(대비 뚜렷한 퍼플) + font=Space Grotesk + defaultMode=dark + radius=6px + density=compact — <html>에 data-density=\"compact\"를 지정한다(밀도 토큰 층은 /profiles의 적용 코드 참고). 폰트는 자동 설치되지 않는다 — assets/fonts/space-grotesk/의 woff2를 복사하고 next/font/local로 layout.tsx에 연결해야 한다(폐쇄망 대응, 라틴 전용이라 한글은 시스템 폰트로 폴백). 자세한 절차는 https://ui.doksam.com/rules 참고.",
+      "cssVars": {
+        "theme": {
+          "radius": "6px"
+        },
+        "light": {
+          "background": "oklch(0.985 0.004 293)",
+          "foreground": "oklch(0.21 0.02 293)",
+          "card": "oklch(0.995 0.002 293)",
+          "card-foreground": "oklch(0.21 0.02 293)",
+          "popover": "oklch(0.995 0.002 293)",
+          "popover-foreground": "oklch(0.21 0.02 293)",
+          "primary": "oklch(0.51 0.23 293)",
+          "primary-foreground": "oklch(0.98 0.01 293)",
+          "secondary": "oklch(0.94 0.02 293)",
+          "secondary-foreground": "oklch(0.28 0.03 293)",
+          "muted": "oklch(0.955 0.012 293)",
+          "muted-foreground": "oklch(0.5 0.03 293)",
+          "accent": "oklch(0.92 0.035 293)",
+          "accent-foreground": "oklch(0.28 0.03 293)",
+          "destructive": "oklch(0.58 0.22 27)",
+          "success": "oklch(0.55 0.15 152)",
+          "warning": "oklch(0.75 0.16 80)",
+          "gain": "oklch(0.58 0.22 27)",
+          "loss": "oklch(0.55 0.2 258)",
+          "border": "oklch(0.9 0.015 293)",
+          "input": "oklch(0.9 0.015 293)",
+          "ring": "oklch(0.51 0.23 293)"
+        },
+        "dark": {
+          "background": "oklch(0.19 0.02 293)",
+          "foreground": "oklch(0.95 0.008 293)",
+          "card": "oklch(0.225 0.022 293)",
+          "card-foreground": "oklch(0.95 0.008 293)",
+          "popover": "oklch(0.225 0.022 293)",
+          "popover-foreground": "oklch(0.95 0.008 293)",
+          "primary": "oklch(0.68 0.19 293)",
+          "primary-foreground": "oklch(0.15 0.02 293)",
+          "secondary": "oklch(0.28 0.022 293)",
+          "secondary-foreground": "oklch(0.95 0.008 293)",
+          "muted": "oklch(0.26 0.02 293)",
+          "muted-foreground": "oklch(0.66 0.028 293)",
+          "accent": "oklch(0.31 0.032 293)",
+          "accent-foreground": "oklch(0.95 0.008 293)",
+          "destructive": "oklch(0.7 0.19 27)",
+          "success": "oklch(0.72 0.15 152)",
+          "warning": "oklch(0.8 0.15 80)",
+          "gain": "oklch(0.7 0.19 27)",
+          "loss": "oklch(0.72 0.16 254)",
+          "border": "oklch(1 0 0 / 12%)",
+          "input": "oklch(1 0 0 / 16%)",
+          "ring": "oklch(0.68 0.19 293)"
+        }
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "profile-docs",
+      "type": "registry:theme",
+      "title": "Profile: Docs",
+      "description": "문서·위키·블로그류 화면 프로필. theme=forest(차분한 그린) + font=IBM Plex Sans KR + defaultMode=light + radius=8px + density=comfortable — <html>에 data-density=\"comfortable\"을 지정한다(밀도 토큰 층은 /profiles의 적용 코드 참고). 폰트는 자동 설치되지 않는다 — assets/fonts/ibm-plex-kr/의 woff2를 복사하고 next/font/local로 layout.tsx에 연결해야 한다(폐쇄망 대응). 자세한 절차는 https://ui.doksam.com/rules 참고.",
+      "cssVars": {
+        "theme": {
+          "radius": "8px"
+        },
+        "light": {
+          "background": "oklch(0.985 0.004 152)",
+          "foreground": "oklch(0.21 0.02 152)",
+          "card": "oklch(0.995 0.002 152)",
+          "card-foreground": "oklch(0.21 0.02 152)",
+          "popover": "oklch(0.995 0.002 152)",
+          "popover-foreground": "oklch(0.21 0.02 152)",
+          "primary": "oklch(0.52 0.13 152)",
+          "primary-foreground": "oklch(0.98 0.01 152)",
+          "secondary": "oklch(0.94 0.02 152)",
+          "secondary-foreground": "oklch(0.28 0.03 152)",
+          "muted": "oklch(0.955 0.012 152)",
+          "muted-foreground": "oklch(0.5 0.03 152)",
+          "accent": "oklch(0.92 0.035 152)",
+          "accent-foreground": "oklch(0.28 0.03 152)",
+          "destructive": "oklch(0.58 0.22 27)",
+          "success": "oklch(0.55 0.15 152)",
+          "warning": "oklch(0.75 0.16 80)",
+          "gain": "oklch(0.58 0.22 27)",
+          "loss": "oklch(0.55 0.2 258)",
+          "border": "oklch(0.9 0.015 152)",
+          "input": "oklch(0.9 0.015 152)",
+          "ring": "oklch(0.52 0.13 152)"
+        },
+        "dark": {
+          "background": "oklch(0.19 0.016 152)",
+          "foreground": "oklch(0.95 0.008 152)",
+          "card": "oklch(0.225 0.018 152)",
+          "card-foreground": "oklch(0.95 0.008 152)",
+          "popover": "oklch(0.225 0.018 152)",
+          "popover-foreground": "oklch(0.95 0.008 152)",
+          "primary": "oklch(0.68 0.16 152)",
+          "primary-foreground": "oklch(0.15 0.02 152)",
+          "secondary": "oklch(0.28 0.02 152)",
+          "secondary-foreground": "oklch(0.95 0.008 152)",
+          "muted": "oklch(0.26 0.016 152)",
+          "muted-foreground": "oklch(0.66 0.025 152)",
+          "accent": "oklch(0.31 0.028 152)",
+          "accent-foreground": "oklch(0.95 0.008 152)",
+          "destructive": "oklch(0.7 0.19 27)",
+          "success": "oklch(0.72 0.15 152)",
+          "warning": "oklch(0.8 0.15 80)",
+          "gain": "oklch(0.7 0.19 27)",
+          "loss": "oklch(0.72 0.16 254)",
+          "border": "oklch(1 0 0 / 12%)",
+          "input": "oklch(1 0 0 / 16%)",
+          "ring": "oklch(0.68 0.16 152)"
+        }
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "profile-console",
+      "type": "registry:theme",
+      "title": "Profile: Console",
+      "description": "모니터링·운영 콘솔류 화면 프로필. theme=ember(웜 오렌지) + font=Geist + defaultMode=dark + radius=4px + density=compact — <html>에 data-density=\"compact\"를 지정한다(밀도 토큰 층은 /profiles의 적용 코드 참고). 폰트는 자동 설치되지 않는다 — assets/fonts/geist/의 woff2를 복사하고 next/font/local로 layout.tsx에 연결해야 한다(폐쇄망 대응, next/font/google 미사용). 자세한 절차는 https://ui.doksam.com/rules 참고.",
+      "cssVars": {
+        "theme": {
+          "radius": "4px"
+        },
+        "light": {
+          "background": "oklch(0.985 0.005 41)",
+          "foreground": "oklch(0.22 0.02 41)",
+          "card": "oklch(0.995 0.003 41)",
+          "card-foreground": "oklch(0.22 0.02 41)",
+          "popover": "oklch(0.995 0.003 41)",
+          "popover-foreground": "oklch(0.22 0.02 41)",
+          "primary": "oklch(0.64 0.19 41)",
+          "primary-foreground": "oklch(0.98 0.01 41)",
+          "secondary": "oklch(0.94 0.025 41)",
+          "secondary-foreground": "oklch(0.3 0.03 41)",
+          "muted": "oklch(0.955 0.015 41)",
+          "muted-foreground": "oklch(0.52 0.03 41)",
+          "accent": "oklch(0.92 0.04 41)",
+          "accent-foreground": "oklch(0.3 0.03 41)",
+          "destructive": "oklch(0.58 0.22 27)",
+          "success": "oklch(0.55 0.15 152)",
+          "warning": "oklch(0.75 0.16 80)",
+          "gain": "oklch(0.58 0.22 27)",
+          "loss": "oklch(0.55 0.2 258)",
+          "border": "oklch(0.9 0.018 41)",
+          "input": "oklch(0.9 0.018 41)",
+          "ring": "oklch(0.64 0.19 41)"
+        },
+        "dark": {
+          "background": "oklch(0.19 0.014 41)",
+          "foreground": "oklch(0.95 0.008 41)",
+          "card": "oklch(0.225 0.016 41)",
+          "card-foreground": "oklch(0.95 0.008 41)",
+          "popover": "oklch(0.225 0.016 41)",
+          "popover-foreground": "oklch(0.95 0.008 41)",
+          "primary": "oklch(0.7 0.17 41)",
+          "primary-foreground": "oklch(0.16 0.02 41)",
+          "secondary": "oklch(0.28 0.018 41)",
+          "secondary-foreground": "oklch(0.95 0.008 41)",
+          "muted": "oklch(0.26 0.015 41)",
+          "muted-foreground": "oklch(0.67 0.025 41)",
+          "accent": "oklch(0.31 0.026 41)",
+          "accent-foreground": "oklch(0.95 0.008 41)",
+          "destructive": "oklch(0.7 0.19 27)",
+          "success": "oklch(0.72 0.15 152)",
+          "warning": "oklch(0.8 0.15 80)",
+          "gain": "oklch(0.7 0.19 27)",
+          "loss": "oklch(0.72 0.16 254)",
+          "border": "oklch(1 0 0 / 12%)",
+          "input": "oklch(1 0 0 / 16%)",
+          "ring": "oklch(0.7 0.17 41)"
+        }
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "template-trading",
+      "type": "registry:block",
+      "title": "Trading Dashboard 템플릿",
+      "description": "data 프로필(Violet 다크·Space Grotesk) 트레이딩 대시보드 풀 템플릿 — 포트폴리오·시세·수급. finance 토큰·dataviz·table-sortable 조합.",
+      "dependencies": [
+        "@tanstack/react-table",
+        "@dnd-kit/core",
+        "@dnd-kit/sortable",
+        "@phosphor-icons/react"
+      ],
+      "registryDependencies": [
+        "https://ui.doksam.com/r/table-sortable.json",
+        "https://ui.doksam.com/r/finance-rate.json",
+        "https://ui.doksam.com/r/finance-format-won.json"
+      ],
+      "files": [
+        {
+          "path": "app/templates/trading/error.tsx",
+          "type": "registry:page",
+          "target": "app/templates/trading/error.tsx"
+        },
+        {
+          "path": "app/templates/trading/layout.tsx",
+          "type": "registry:page",
+          "target": "app/templates/trading/layout.tsx"
+        },
+        {
+          "path": "app/templates/trading/loading.tsx",
+          "type": "registry:page",
+          "target": "app/templates/trading/loading.tsx"
+        },
+        {
+          "path": "app/templates/trading/page.tsx",
+          "type": "registry:page",
+          "target": "app/templates/trading/page.tsx"
+        },
+        {
+          "path": "app/templates/trading/_components/holdings-table.tsx",
+          "type": "registry:page",
+          "target": "app/templates/trading/_components/holdings-table.tsx"
+        },
+        {
+          "path": "app/templates/trading/_components/trading-nav.tsx",
+          "type": "registry:page",
+          "target": "app/templates/trading/_components/trading-nav.tsx"
+        },
+        {
+          "path": "app/templates/trading/[symbol]/error.tsx",
+          "type": "registry:page",
+          "target": "app/templates/trading/[symbol]/error.tsx"
+        },
+        {
+          "path": "app/templates/trading/[symbol]/loading.tsx",
+          "type": "registry:page",
+          "target": "app/templates/trading/[symbol]/loading.tsx"
+        },
+        {
+          "path": "app/templates/trading/[symbol]/page.tsx",
+          "type": "registry:page",
+          "target": "app/templates/trading/[symbol]/page.tsx"
+        },
+        {
+          "path": "app/templates/trading/watchlist/error.tsx",
+          "type": "registry:page",
+          "target": "app/templates/trading/watchlist/error.tsx"
+        },
+        {
+          "path": "app/templates/trading/watchlist/loading.tsx",
+          "type": "registry:page",
+          "target": "app/templates/trading/watchlist/loading.tsx"
+        },
+        {
+          "path": "app/templates/trading/watchlist/page.tsx",
+          "type": "registry:page",
+          "target": "app/templates/trading/watchlist/page.tsx"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "template-admin",
+      "type": "registry:block",
+      "title": "Admin/Backoffice Pro 템플릿",
+      "description": "admin 프로필(Slate·Geist) 관리자 대시보드 — 사이드바 셸·정렬 테이블·관측성 뷰어·설정 폼.",
+      "dependencies": [
+        "@tanstack/react-table",
+        "@dnd-kit/core",
+        "@dnd-kit/sortable",
+        "@phosphor-icons/react"
+      ],
+      "registryDependencies": [
+        "https://ui.doksam.com/r/table-sortable.json",
+        "https://ui.doksam.com/r/json-tree.json",
+        "https://ui.doksam.com/r/log-viewer.json",
+        "https://ui.doksam.com/r/request-inspector.json"
+      ],
+      "files": [
+        {
+          "path": "app/templates/admin/error.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/error.tsx"
+        },
+        {
+          "path": "app/templates/admin/layout.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/layout.tsx"
+        },
+        {
+          "path": "app/templates/admin/loading.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/loading.tsx"
+        },
+        {
+          "path": "app/templates/admin/page.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/page.tsx"
+        },
+        {
+          "path": "app/templates/admin/settings/error.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/settings/error.tsx"
+        },
+        {
+          "path": "app/templates/admin/settings/loading.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/settings/loading.tsx"
+        },
+        {
+          "path": "app/templates/admin/settings/page.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/settings/page.tsx"
+        },
+        {
+          "path": "app/templates/admin/logs/error.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/logs/error.tsx"
+        },
+        {
+          "path": "app/templates/admin/logs/loading.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/logs/loading.tsx"
+        },
+        {
+          "path": "app/templates/admin/logs/page.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/logs/page.tsx"
+        },
+        {
+          "path": "app/templates/admin/_components/admin-sidebar.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/_components/admin-sidebar.tsx"
+        },
+        {
+          "path": "app/templates/admin/_components/data-explorer.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/_components/data-explorer.tsx"
+        },
+        {
+          "path": "app/templates/admin/_components/json-tree.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/_components/json-tree.tsx"
+        },
+        {
+          "path": "app/templates/admin/_components/kpi-card.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/_components/kpi-card.tsx"
+        },
+        {
+          "path": "app/templates/admin/_components/log-viewer.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/_components/log-viewer.tsx"
+        },
+        {
+          "path": "app/templates/admin/_components/page-heading.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/_components/page-heading.tsx"
+        },
+        {
+          "path": "app/templates/admin/_components/recent-activity-table.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/_components/recent-activity-table.tsx"
+        },
+        {
+          "path": "app/templates/admin/_components/request-inspector.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/_components/request-inspector.tsx"
+        },
+        {
+          "path": "app/templates/admin/_components/settings-form.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/_components/settings-form.tsx"
+        },
+        {
+          "path": "app/templates/admin/_components/status-widget.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/_components/status-widget.tsx"
+        },
+        {
+          "path": "app/templates/admin/_components/team-faceted-filter.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/_components/team-faceted-filter.tsx"
+        },
+        {
+          "path": "app/templates/admin/_components/user-search-filter.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/_components/user-search-filter.tsx"
+        },
+        {
+          "path": "app/templates/admin/_data/dashboard-data.ts",
+          "type": "registry:page",
+          "target": "app/templates/admin/_data/dashboard-data.ts"
+        },
+        {
+          "path": "app/templates/admin/_data/logs-data.ts",
+          "type": "registry:page",
+          "target": "app/templates/admin/_data/logs-data.ts"
+        },
+        {
+          "path": "app/templates/admin/_data/settings-data.ts",
+          "type": "registry:page",
+          "target": "app/templates/admin/_data/settings-data.ts"
+        },
+        {
+          "path": "app/templates/admin/_data/users-data.ts",
+          "type": "registry:page",
+          "target": "app/templates/admin/_data/users-data.ts"
+        },
+        {
+          "path": "app/templates/admin/data/error.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/data/error.tsx"
+        },
+        {
+          "path": "app/templates/admin/data/loading.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/data/loading.tsx"
+        },
+        {
+          "path": "app/templates/admin/data/page.tsx",
+          "type": "registry:page",
+          "target": "app/templates/admin/data/page.tsx"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "template-saas",
+      "type": "registry:block",
+      "title": "SaaS Landing + Dashboard 템플릿",
+      "description": "service 프로필(Ocean·Noto Sans KR) 랜딩+대시보드+피드 — 히어로·가격·콘텐츠 피드.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "registryDependencies": [
+        "https://ui.doksam.com/r/screen-help-dialog.json"
+      ],
+      "files": [
+        {
+          "path": "app/templates/saas/error.tsx",
+          "type": "registry:page",
+          "target": "app/templates/saas/error.tsx"
+        },
+        {
+          "path": "app/templates/saas/layout.tsx",
+          "type": "registry:page",
+          "target": "app/templates/saas/layout.tsx"
+        },
+        {
+          "path": "app/templates/saas/loading.tsx",
+          "type": "registry:page",
+          "target": "app/templates/saas/loading.tsx"
+        },
+        {
+          "path": "app/templates/saas/page.tsx",
+          "type": "registry:page",
+          "target": "app/templates/saas/page.tsx"
+        },
+        {
+          "path": "app/templates/saas/_lib/data.ts",
+          "type": "registry:page",
+          "target": "app/templates/saas/_lib/data.ts"
+        },
+        {
+          "path": "app/templates/saas/dashboard/error.tsx",
+          "type": "registry:page",
+          "target": "app/templates/saas/dashboard/error.tsx"
+        },
+        {
+          "path": "app/templates/saas/dashboard/loading.tsx",
+          "type": "registry:page",
+          "target": "app/templates/saas/dashboard/loading.tsx"
+        },
+        {
+          "path": "app/templates/saas/dashboard/page.tsx",
+          "type": "registry:page",
+          "target": "app/templates/saas/dashboard/page.tsx"
+        },
+        {
+          "path": "app/templates/saas/_components/dashboard-summary.tsx",
+          "type": "registry:page",
+          "target": "app/templates/saas/_components/dashboard-summary.tsx"
+        },
+        {
+          "path": "app/templates/saas/_components/faq-section.tsx",
+          "type": "registry:page",
+          "target": "app/templates/saas/_components/faq-section.tsx"
+        },
+        {
+          "path": "app/templates/saas/_components/feature-grid.tsx",
+          "type": "registry:page",
+          "target": "app/templates/saas/_components/feature-grid.tsx"
+        },
+        {
+          "path": "app/templates/saas/_components/feed-explorer.tsx",
+          "type": "registry:page",
+          "target": "app/templates/saas/_components/feed-explorer.tsx"
+        },
+        {
+          "path": "app/templates/saas/_components/hero-section.tsx",
+          "type": "registry:page",
+          "target": "app/templates/saas/_components/hero-section.tsx"
+        },
+        {
+          "path": "app/templates/saas/_components/pricing-section.tsx",
+          "type": "registry:page",
+          "target": "app/templates/saas/_components/pricing-section.tsx"
+        },
+        {
+          "path": "app/templates/saas/_components/template-nav.tsx",
+          "type": "registry:page",
+          "target": "app/templates/saas/_components/template-nav.tsx"
+        },
+        {
+          "path": "app/templates/saas/feed/error.tsx",
+          "type": "registry:page",
+          "target": "app/templates/saas/feed/error.tsx"
+        },
+        {
+          "path": "app/templates/saas/feed/loading.tsx",
+          "type": "registry:page",
+          "target": "app/templates/saas/feed/loading.tsx"
+        },
+        {
+          "path": "app/templates/saas/feed/page.tsx",
+          "type": "registry:page",
+          "target": "app/templates/saas/feed/page.tsx"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "template-chat",
+      "type": "registry:block",
+      "title": "Chat / AI Assistant 템플릿",
+      "description": "data 프로필(Violet 다크·Space Grotesk) AI 어시스턴트 대화 템플릿 — 말풍선·메시지 스크롤러·첨부 입력창·설정 폼.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "app/templates/chat/error.tsx",
+          "type": "registry:page",
+          "target": "app/templates/chat/error.tsx"
+        },
+        {
+          "path": "app/templates/chat/layout.tsx",
+          "type": "registry:page",
+          "target": "app/templates/chat/layout.tsx"
+        },
+        {
+          "path": "app/templates/chat/loading.tsx",
+          "type": "registry:page",
+          "target": "app/templates/chat/loading.tsx"
+        },
+        {
+          "path": "app/templates/chat/page.tsx",
+          "type": "registry:page",
+          "target": "app/templates/chat/page.tsx"
+        },
+        {
+          "path": "app/templates/chat/settings/error.tsx",
+          "type": "registry:page",
+          "target": "app/templates/chat/settings/error.tsx"
+        },
+        {
+          "path": "app/templates/chat/settings/loading.tsx",
+          "type": "registry:page",
+          "target": "app/templates/chat/settings/loading.tsx"
+        },
+        {
+          "path": "app/templates/chat/settings/page.tsx",
+          "type": "registry:page",
+          "target": "app/templates/chat/settings/page.tsx"
+        },
+        {
+          "path": "app/templates/chat/_lib/data.ts",
+          "type": "registry:page",
+          "target": "app/templates/chat/_lib/data.ts"
+        },
+        {
+          "path": "app/templates/chat/_components/chat-main.tsx",
+          "type": "registry:page",
+          "target": "app/templates/chat/_components/chat-main.tsx"
+        },
+        {
+          "path": "app/templates/chat/_components/chat-nav.tsx",
+          "type": "registry:page",
+          "target": "app/templates/chat/_components/chat-nav.tsx"
+        },
+        {
+          "path": "app/templates/chat/_components/chat-shell.tsx",
+          "type": "registry:page",
+          "target": "app/templates/chat/_components/chat-shell.tsx"
+        },
+        {
+          "path": "app/templates/chat/_components/composer.tsx",
+          "type": "registry:page",
+          "target": "app/templates/chat/_components/composer.tsx"
+        },
+        {
+          "path": "app/templates/chat/_components/conversation-list.tsx",
+          "type": "registry:page",
+          "target": "app/templates/chat/_components/conversation-list.tsx"
+        },
+        {
+          "path": "app/templates/chat/_components/settings-form.tsx",
+          "type": "registry:page",
+          "target": "app/templates/chat/_components/settings-form.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://ui.doksam.com/r/screen-help-dialog.json"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "template-shop",
+      "type": "registry:block",
+      "title": "E-commerce Storefront 템플릿",
+      "description": "service 프로필(Ocean·Noto Sans KR) 커머스 템플릿 — 스토어프론트·상품상세(캐러셀)·장바구니.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "app/templates/shop/error.tsx",
+          "type": "registry:page",
+          "target": "app/templates/shop/error.tsx"
+        },
+        {
+          "path": "app/templates/shop/layout.tsx",
+          "type": "registry:page",
+          "target": "app/templates/shop/layout.tsx"
+        },
+        {
+          "path": "app/templates/shop/loading.tsx",
+          "type": "registry:page",
+          "target": "app/templates/shop/loading.tsx"
+        },
+        {
+          "path": "app/templates/shop/page.tsx",
+          "type": "registry:page",
+          "target": "app/templates/shop/page.tsx"
+        },
+        {
+          "path": "app/templates/shop/_lib/data.ts",
+          "type": "registry:page",
+          "target": "app/templates/shop/_lib/data.ts"
+        },
+        {
+          "path": "app/templates/shop/product/[id]/error.tsx",
+          "type": "registry:page",
+          "target": "app/templates/shop/product/[id]/error.tsx"
+        },
+        {
+          "path": "app/templates/shop/product/[id]/loading.tsx",
+          "type": "registry:page",
+          "target": "app/templates/shop/product/[id]/loading.tsx"
+        },
+        {
+          "path": "app/templates/shop/product/[id]/page.tsx",
+          "type": "registry:page",
+          "target": "app/templates/shop/product/[id]/page.tsx"
+        },
+        {
+          "path": "app/templates/shop/_components/hero-promo.tsx",
+          "type": "registry:page",
+          "target": "app/templates/shop/_components/hero-promo.tsx"
+        },
+        {
+          "path": "app/templates/shop/_components/product-card.tsx",
+          "type": "registry:page",
+          "target": "app/templates/shop/_components/product-card.tsx"
+        },
+        {
+          "path": "app/templates/shop/_components/product-gallery.tsx",
+          "type": "registry:page",
+          "target": "app/templates/shop/_components/product-gallery.tsx"
+        },
+        {
+          "path": "app/templates/shop/_components/product-grid.tsx",
+          "type": "registry:page",
+          "target": "app/templates/shop/_components/product-grid.tsx"
+        },
+        {
+          "path": "app/templates/shop/_components/product-options.tsx",
+          "type": "registry:page",
+          "target": "app/templates/shop/_components/product-options.tsx"
+        },
+        {
+          "path": "app/templates/shop/_components/product-visual.tsx",
+          "type": "registry:page",
+          "target": "app/templates/shop/_components/product-visual.tsx"
+        },
+        {
+          "path": "app/templates/shop/_components/review-summary.tsx",
+          "type": "registry:page",
+          "target": "app/templates/shop/_components/review-summary.tsx"
+        },
+        {
+          "path": "app/templates/shop/_components/shop-nav.tsx",
+          "type": "registry:page",
+          "target": "app/templates/shop/_components/shop-nav.tsx"
+        },
+        {
+          "path": "app/templates/shop/cart/error.tsx",
+          "type": "registry:page",
+          "target": "app/templates/shop/cart/error.tsx"
+        },
+        {
+          "path": "app/templates/shop/cart/loading.tsx",
+          "type": "registry:page",
+          "target": "app/templates/shop/cart/loading.tsx"
+        },
+        {
+          "path": "app/templates/shop/cart/page.tsx",
+          "type": "registry:page",
+          "target": "app/templates/shop/cart/page.tsx"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "date-picker",
+      "type": "registry:component",
+      "title": "Date Picker",
+      "description": "calendar+popover 단일 날짜 선택기.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "registryDependencies": [
+        "button",
+        "calendar",
+        "popover"
+      ],
+      "files": [
+        {
+          "path": "components/date-picker.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "date-range-picker",
+      "type": "registry:component",
+      "title": "Date Range Picker",
+      "description": "2달 캘린더 from~to 범위 선택기.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "registryDependencies": [
+        "button",
+        "calendar",
+        "popover"
+      ],
+      "files": [
+        {
+          "path": "components/date-range-picker.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "multi-select",
+      "type": "registry:component",
+      "title": "Multi Select",
+      "description": "command 팝오버 다중 선택 + 칩.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "command",
+        "popover"
+      ],
+      "files": [
+        {
+          "path": "components/multi-select.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "password-input",
+      "type": "registry:component",
+      "title": "Password Input",
+      "description": "표시/숨김 토글 비밀번호 입력.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "registryDependencies": [
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "components/password-input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "number-input",
+      "type": "registry:component",
+      "title": "Number Input",
+      "description": "+/- 스테퍼 숫자 입력.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "registryDependencies": [
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "components/number-input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "color-picker",
+      "type": "registry:component",
+      "title": "Color Picker",
+      "description": "스와치+hex 순수 색상 선택기.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "popover"
+      ],
+      "files": [
+        {
+          "path": "components/color-picker.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "rating",
+      "type": "registry:component",
+      "title": "Rating",
+      "description": "별점(hover·반개·readonly).",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "components/rating.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "avatar-group",
+      "type": "registry:component",
+      "title": "Avatar Group",
+      "description": "겹친 아바타 스택+N.",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "files": [
+        {
+          "path": "components/avatar-group.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "circular-progress",
+      "type": "registry:component",
+      "title": "Circular Progress",
+      "description": "SVG 링 진행률.",
+      "files": [
+        {
+          "path": "components/circular-progress.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "banner",
+      "type": "registry:component",
+      "title": "Banner",
+      "description": "공지 바(variant·닫기).",
+      "dependencies": [
+        "class-variance-authority",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "components/banner.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "code-block",
+      "type": "registry:component",
+      "title": "Code Block",
+      "description": "복사·라인번호 코드 블록.",
+      "registryDependencies": [
+        "https://ui.doksam.com/r/copy-button.json"
+      ],
+      "files": [
+        {
+          "path": "components/code-block.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "tree-view",
+      "type": "registry:component",
+      "title": "Tree View",
+      "description": "범용 접이식 트리(키보드).",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "components/tree-view.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "template-bank",
+      "type": "registry:block",
+      "title": "Bank Portal 템플릿",
+      "description": "service 프로필(Ocean·Noto Sans KR) 리테일 뱅크 포털 홈 — 히어로 캐러셀·퀵서비스 탭·프로모·금융상품·바로가기·뜨는상품·새소식(가상 은행 누리은행).",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "app/templates/bank/error.tsx",
+          "type": "registry:page",
+          "target": "app/templates/bank/error.tsx"
+        },
+        {
+          "path": "app/templates/bank/layout.tsx",
+          "type": "registry:page",
+          "target": "app/templates/bank/layout.tsx"
+        },
+        {
+          "path": "app/templates/bank/loading.tsx",
+          "type": "registry:page",
+          "target": "app/templates/bank/loading.tsx"
+        },
+        {
+          "path": "app/templates/bank/page.tsx",
+          "type": "registry:page",
+          "target": "app/templates/bank/page.tsx"
+        },
+        {
+          "path": "app/templates/bank/_components/bank-nav.tsx",
+          "type": "registry:page",
+          "target": "app/templates/bank/_components/bank-nav.tsx"
+        },
+        {
+          "path": "app/templates/bank/_components/bottom-section.tsx",
+          "type": "registry:page",
+          "target": "app/templates/bank/_components/bottom-section.tsx"
+        },
+        {
+          "path": "app/templates/bank/_components/hero-carousel.tsx",
+          "type": "registry:page",
+          "target": "app/templates/bank/_components/hero-carousel.tsx"
+        },
+        {
+          "path": "app/templates/bank/_components/product-categories.tsx",
+          "type": "registry:page",
+          "target": "app/templates/bank/_components/product-categories.tsx"
+        },
+        {
+          "path": "app/templates/bank/_components/promo-cards.tsx",
+          "type": "registry:page",
+          "target": "app/templates/bank/_components/promo-cards.tsx"
+        },
+        {
+          "path": "app/templates/bank/_components/quick-links-panel.tsx",
+          "type": "registry:page",
+          "target": "app/templates/bank/_components/quick-links-panel.tsx"
+        },
+        {
+          "path": "app/templates/bank/_components/quick-service-tabs.tsx",
+          "type": "registry:page",
+          "target": "app/templates/bank/_components/quick-service-tabs.tsx"
+        },
+        {
+          "path": "app/templates/bank/_components/trending-products.tsx",
+          "type": "registry:page",
+          "target": "app/templates/bank/_components/trending-products.tsx"
+        },
+        {
+          "path": "app/templates/bank/_data/hero.ts",
+          "type": "registry:page",
+          "target": "app/templates/bank/_data/hero.ts"
+        },
+        {
+          "path": "app/templates/bank/_data/nav.ts",
+          "type": "registry:page",
+          "target": "app/templates/bank/_data/nav.ts"
+        },
+        {
+          "path": "app/templates/bank/_data/news.ts",
+          "type": "registry:page",
+          "target": "app/templates/bank/_data/news.ts"
+        },
+        {
+          "path": "app/templates/bank/_data/product-categories.ts",
+          "type": "registry:page",
+          "target": "app/templates/bank/_data/product-categories.ts"
+        },
+        {
+          "path": "app/templates/bank/_data/promos.ts",
+          "type": "registry:page",
+          "target": "app/templates/bank/_data/promos.ts"
+        },
+        {
+          "path": "app/templates/bank/_data/quick-links.ts",
+          "type": "registry:page",
+          "target": "app/templates/bank/_data/quick-links.ts"
+        },
+        {
+          "path": "app/templates/bank/_data/quick-services.ts",
+          "type": "registry:page",
+          "target": "app/templates/bank/_data/quick-services.ts"
+        },
+        {
+          "path": "app/templates/bank/_data/site.ts",
+          "type": "registry:page",
+          "target": "app/templates/bank/_data/site.ts"
+        },
+        {
+          "path": "app/templates/bank/_data/trending-products.ts",
+          "type": "registry:page",
+          "target": "app/templates/bank/_data/trending-products.ts"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "template-brokerage",
+      "type": "registry:block",
+      "title": "Brokerage Market Home 템플릿",
+      "description": "service 프로필(Ocean·Noto Sans KR) 증권 마켓 홈 — 시장 지표·실시간 랭킹 스크리너·종목 상세(캔들·AI·커뮤니티)·관심종목(가상 누리증권).",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "app/templates/brokerage/error.tsx",
+          "type": "registry:page",
+          "target": "app/templates/brokerage/error.tsx"
+        },
+        {
+          "path": "app/templates/brokerage/layout.tsx",
+          "type": "registry:page",
+          "target": "app/templates/brokerage/layout.tsx"
+        },
+        {
+          "path": "app/templates/brokerage/loading.tsx",
+          "type": "registry:page",
+          "target": "app/templates/brokerage/loading.tsx"
+        },
+        {
+          "path": "app/templates/brokerage/page.tsx",
+          "type": "registry:page",
+          "target": "app/templates/brokerage/page.tsx"
+        },
+        {
+          "path": "app/templates/brokerage/_components/brokerage-nav.tsx",
+          "type": "registry:page",
+          "target": "app/templates/brokerage/_components/brokerage-nav.tsx"
+        },
+        {
+          "path": "app/templates/brokerage/_components/key-schedule.tsx",
+          "type": "registry:page",
+          "target": "app/templates/brokerage/_components/key-schedule.tsx"
+        },
+        {
+          "path": "app/templates/brokerage/_components/market-strip.tsx",
+          "type": "registry:page",
+          "target": "app/templates/brokerage/_components/market-strip.tsx"
+        },
+        {
+          "path": "app/templates/brokerage/_components/market-ticker.tsx",
+          "type": "registry:page",
+          "target": "app/templates/brokerage/_components/market-ticker.tsx"
+        },
+        {
+          "path": "app/templates/brokerage/_components/screener-table.tsx",
+          "type": "registry:page",
+          "target": "app/templates/brokerage/_components/screener-table.tsx"
+        },
+        {
+          "path": "app/templates/brokerage/_components/stock-detail.tsx",
+          "type": "registry:page",
+          "target": "app/templates/brokerage/_components/stock-detail.tsx"
+        },
+        {
+          "path": "app/templates/brokerage/_components/watchlist-sidebar.tsx",
+          "type": "registry:page",
+          "target": "app/templates/brokerage/_components/watchlist-sidebar.tsx"
+        },
+        {
+          "path": "app/templates/brokerage/_data/detail.ts",
+          "type": "registry:page",
+          "target": "app/templates/brokerage/_data/detail.ts"
+        },
+        {
+          "path": "app/templates/brokerage/_data/market.ts",
+          "type": "registry:page",
+          "target": "app/templates/brokerage/_data/market.ts"
+        },
+        {
+          "path": "app/templates/brokerage/_data/schedule.ts",
+          "type": "registry:page",
+          "target": "app/templates/brokerage/_data/schedule.ts"
+        },
+        {
+          "path": "app/templates/brokerage/_data/screener.ts",
+          "type": "registry:page",
+          "target": "app/templates/brokerage/_data/screener.ts"
+        },
+        {
+          "path": "app/templates/brokerage/_data/watchlist.ts",
+          "type": "registry:page",
+          "target": "app/templates/brokerage/_data/watchlist.ts"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "risk-core-map",
+      "type": "registry:component",
+      "title": "Risk Core Map",
+      "description": "위험등급(tier)을 중심→외곽 동심원 밴드로 배치하고 노드 크기·글로우로 익스포저와 위험을 표현하는 리스크 코어 네트워크 맵.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "components/risk-core-map.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "scenario-simulator",
+      "type": "registry:component",
+      "title": "Scenario Simulator",
+      "description": "파라미터 선택에 따라 현재/시나리오/증가분 KPI 카드가 즉시 재계산되는 what-if 시나리오 시뮬레이터.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "components/scenario-simulator.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "pipeline-rail",
+      "type": "registry:component",
+      "title": "Pipeline Rail",
+      "description": "원형 번호 노드 레일과 서브탭 2단으로 프로세스 단계를 탐색하는 파이프라인 스텝퍼.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "components/pipeline-rail.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "stage-progress-board",
+      "type": "registry:component",
+      "title": "Stage Progress Board",
+      "description": "단계별 상태 배지·진행 바·작업 체크리스트를 카드 그리드로 보여주는 다단계 진행 현황 보드.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "components/stage-progress-board.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "keyword-cloud",
+      "type": "registry:component",
+      "title": "Keyword Cloud",
+      "description": "빈도를 3단계 티어의 pill 크기·강조로 표현하고 클릭 시 관련 항목을 펼치는 키워드 클라우드.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "components/keyword-cloud.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "contribution-bars",
+      "type": "registry:component",
+      "title": "Contribution Bars",
+      "description": "요인별 기여도를 트랙 바와 퍼센트로 분해해 보여주는 SHAP 스타일 기여도 패널.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "components/contribution-bars.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "live-indicator",
+      "type": "registry:component",
+      "title": "Live Indicator",
+      "description": "live/paused/stale/offline 상태를 펄스 도트와 갱신 시각으로 보여주는 실시간 상태 인디케이터.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "components/live-indicator.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "mermaid-viewer",
+      "type": "registry:component",
+      "title": "Mermaid Viewer",
+      "description": "mermaid 코드를 동적 로드로 SVG 렌더링하는 다이어그램 뷰어.",
+      "dependencies": [
+        "mermaid",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "components/mermaid-viewer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

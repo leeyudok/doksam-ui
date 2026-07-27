@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "banner",
+  "title": "Banner",
+  "description": "공지 바(variant·닫기).",
+  "dependencies": [
+    "class-variance-authority",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "components/banner.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { CheckCircleIcon, InfoIcon, WarningCircleIcon, WarningIcon, XIcon } from \"@phosphor-icons/react/dist/ssr\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst bannerVariants = cva(\n  \"group/banner relative flex w-full items-start gap-2 rounded-lg border px-3 py-2.5 text-sm [&>svg]:mt-0.5 [&>svg]:shrink-0\",\n  {\n    variants: {\n      variant: {\n        info: \"border-primary/20 bg-primary/10 text-primary\",\n        success: \"border-success/20 bg-success/10 text-success\",\n        warning: \"border-warning/20 bg-warning/10 text-warning\",\n        destructive: \"border-destructive/20 bg-destructive/10 text-destructive\",\n      },\n    },\n    defaultVariants: {\n      variant: \"info\",\n    },\n  }\n)\n\nconst bannerIcons = {\n  info: InfoIcon,\n  success: CheckCircleIcon,\n  warning: WarningIcon,\n  destructive: WarningCircleIcon,\n} as const\n\nexport interface BannerProps extends React.ComponentProps<\"div\">, VariantProps<typeof bannerVariants> {\n  /** 닫기 버튼 클릭 시 호출. 배너 자체는 항상 내부 상태로 닫힘을 처리한다. */\n  onDismiss?: () => void\n}\n\n/**\n * 상단 공지 배너(#36) — info/success/warning/destructive cva variant + 상태 아이콘 +\n * 닫기 버튼. 닫힘 상태를 내부에서 관리하는 client 컴포넌트.\n */\nfunction Banner({ className, variant = \"info\", onDismiss, children, ...props }: Readonly<BannerProps>) {\n  const [dismissed, setDismissed] = React.useState(false)\n  const resolvedVariant = variant ?? \"info\"\n  const Icon = bannerIcons[resolvedVariant]\n\n  if (dismissed) return null\n\n  return (\n    <div\n      data-slot=\"banner\"\n      data-variant={resolvedVariant}\n      role=\"status\"\n      className={cn(bannerVariants({ variant: resolvedVariant }), className)}\n      {...props}\n    >\n      <Icon size={16} weight=\"regular\" />\n      <div data-slot=\"banner-content\" className=\"min-w-0 flex-1\">\n        {children}\n      </div>\n      <button\n        type=\"button\"\n        aria-label=\"배너 닫기\"\n        data-slot=\"banner-dismiss\"\n        className=\"shrink-0 rounded-md p-0.5 text-current opacity-70 transition-opacity hover:opacity-100\"\n        onClick={() => {\n          setDismissed(true)\n          onDismiss?.()\n        }}\n      >\n        <XIcon size={14} weight=\"regular\" />\n      </button>\n    </div>\n  )\n}\n\nexport { Banner, bannerVariants }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}
