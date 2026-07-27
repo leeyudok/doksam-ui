@@ -714,19 +714,9 @@
           "target": "app/templates/admin/_components/data-explorer.tsx"
         },
         {
-          "path": "app/templates/admin/_components/json-tree.tsx",
-          "type": "registry:page",
-          "target": "app/templates/admin/_components/json-tree.tsx"
-        },
-        {
           "path": "app/templates/admin/_components/kpi-card.tsx",
           "type": "registry:page",
           "target": "app/templates/admin/_components/kpi-card.tsx"
-        },
-        {
-          "path": "app/templates/admin/_components/log-viewer.tsx",
-          "type": "registry:page",
-          "target": "app/templates/admin/_components/log-viewer.tsx"
         },
         {
           "path": "app/templates/admin/_components/page-heading.tsx",
@@ -737,11 +727,6 @@
           "path": "app/templates/admin/_components/recent-activity-table.tsx",
           "type": "registry:page",
           "target": "app/templates/admin/_components/recent-activity-table.tsx"
-        },
-        {
-          "path": "app/templates/admin/_components/request-inspector.tsx",
-          "type": "registry:page",
-          "target": "app/templates/admin/_components/request-inspector.tsx"
         },
         {
           "path": "app/templates/admin/_components/settings-form.tsx",

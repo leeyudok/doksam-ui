@@ -1,8 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { PageHeading } from "../_components/page-heading"
-import { LogViewer } from "../_components/log-viewer"
-import { RequestInspector } from "../_components/request-inspector"
-import { JsonTree } from "../_components/json-tree"
+import { LogViewer } from "@/components/log-viewer"
+import { RequestInspector } from "@/components/request-inspector"
+import { JsonTree } from "@/components/json-tree"
 import { LOG_ENTRIES, REQUEST_ENTRIES, SAMPLE_RESPONSE_JSON } from "../_data/logs-data"
 
 export default function AdminLogsPage() {
@@ -37,7 +37,7 @@ export default function AdminLogsPage() {
           <CardTitle className="text-sm">원시 응답 페이로드</CardTitle>
         </CardHeader>
         <CardContent>
-          <JsonTree label="response" data={SAMPLE_RESPONSE_JSON} />
+          <JsonTree rootLabel="response" data={SAMPLE_RESPONSE_JSON} />
         </CardContent>
       </Card>
     </div>

@@ -83,10 +83,11 @@ function KeywordCloud({ keywords, onSelect, className, ...props }: Readonly<Keyw
           const tier = k.tier ?? tierFor(k.count, minCount, maxCount)
           const isSelected = selected === k.label
           return (
+            // listitem 롤은 aria-pressed 를 지원하지 않는다. 리스트 구조는 래퍼가 맡고
+            // 토글 상태는 버튼의 네이티브 button 롤 위에서 표현해 둘 다 보조기술에 전달한다.
+            <div key={k.label} role="listitem">
             <button
-              key={k.label}
               type="button"
-              role="listitem"
               aria-pressed={isSelected}
               onClick={() => handleClick(k)}
               className={cn(
@@ -99,6 +100,7 @@ function KeywordCloud({ keywords, onSelect, className, ...props }: Readonly<Keyw
               <span>{k.label}</span>
               <span className="text-muted-foreground">{k.count}</span>
             </button>
+            </div>
           )
         })}
       </div>

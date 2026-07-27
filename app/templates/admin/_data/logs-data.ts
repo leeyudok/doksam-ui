@@ -1,17 +1,12 @@
 /**
  * Admin 템플릿 "로그·관측성" 페이지 데모 데이터 — 순수 데이터 모듈.
+ *
+ * 타입은 registryDependency 로 함께 설치되는 컴포넌트(log-viewer · request-inspector ·
+ * json-tree)가 단일 진실원천이다. 여기서 다시 선언하지 않는다.
  */
-
-export type LogLevel = "info" | "debug" | "warn" | "error"
-
-export interface LogEntry {
-  id: string
-  time: string
-  level: LogLevel
-  group: number
-  message: string
-  count?: number
-}
+import type { JsonValue } from "@/components/json-tree"
+import type { LogEntry } from "@/components/log-viewer"
+import type { RequestEntry } from "@/components/request-inspector"
 
 export const LOG_ENTRIES: LogEntry[] = [
   { id: "1", time: "10:24:01.102", level: "info", group: 0, message: "요청 시작 GET /api/orders" },
@@ -25,20 +20,6 @@ export const LOG_ENTRIES: LogEntry[] = [
   { id: "9", time: "10:24:12.330", level: "warn", group: 0, message: "메시지 큐 지연 3200ms", count: 2 },
   { id: "10", time: "10:24:15.771", level: "error", group: 0, message: "재고 동기화 실패 SKU-1042" },
 ]
-
-export type RequestMethod = "GET" | "POST" | "PUT" | "DELETE"
-
-export interface RequestEntry {
-  id: string
-  method: RequestMethod
-  path: string
-  status: number
-  durationMs: number
-  headers: Record<string, string>
-  query: Record<string, string>
-  payload: Record<string, unknown> | null
-  response: Record<string, unknown>
-}
 
 export const REQUEST_ENTRIES: RequestEntry[] = [
   {
@@ -86,8 +67,6 @@ export const REQUEST_ENTRIES: RequestEntry[] = [
     response: { error: "internal_server_error" },
   },
 ]
-
-export type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue }
 
 export const SAMPLE_RESPONSE_JSON: JsonValue = {
   requestId: "req_8f21ac",
