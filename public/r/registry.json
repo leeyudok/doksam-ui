@@ -105,6 +105,26 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "table-toggle",
+      "type": "registry:component",
+      "title": "Table Toggle",
+      "description": "행마다 on/off Switch가 붙은 관리자용 테이블. 낙관적 업데이트, 실패 시 롤백+사유 표시, 행 단위 진행 상태, data 재조정을 지원한다.",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "registryDependencies": [
+        "switch",
+        "table"
+      ],
+      "files": [
+        {
+          "path": "components/table-toggle.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "screen-help-dialog",
       "type": "registry:component",
       "title": "Screen Help Dialog",

@@ -66,6 +66,18 @@ registryDependencies: button, dropdown-menu, table
 
 npm dependencies: @tanstack/react-table, @dnd-kit/core, @dnd-kit/sortable, @dnd-kit/utilities, @phosphor-icons/react
 
+### Table Toggle (`table-toggle`)
+
+행마다 on/off Switch가 붙은 관리자용 테이블. 낙관적 업데이트, 실패 시 롤백+사유 표시, 행 단위 진행 상태, data 재조정을 지원한다.
+
+```
+npx shadcn add https://ui.doksam.com/r/table-toggle.json
+```
+
+registryDependencies: switch, table
+
+npm dependencies: @phosphor-icons/react
+
 ### Screen Help Dialog (`screen-help-dialog`)
 
 화면 제목 옆 (?) 버튼을 누르면 뜨는 화면 매뉴얼 다이얼로그. shadcn Dialog + Button(asChild) 조합 커스텀 패턴.

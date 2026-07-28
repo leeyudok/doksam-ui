@@ -11,7 +11,7 @@ describe("ComponentPage", () => {
     render(jsx)
     expect(screen.getByRole("heading", { level: 1, name: "Button" })).toBeInTheDocument()
     expect(screen.getByText("저장하기")).toBeInTheDocument()
-    expect(screen.getByRole("button", { name: /복사/ })).toBeInTheDocument()
+    expect(screen.getAllByRole("button", { name: /복사/ }).length).toBeGreaterThan(0)
     expect(screen.getByText("Do")).toBeInTheDocument()
     expect(screen.getByText("Don't")).toBeInTheDocument()
   })

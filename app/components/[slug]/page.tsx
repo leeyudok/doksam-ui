@@ -4,6 +4,7 @@ import { ComponentDetail } from "@/components/showcase/component-detail"
 import { TodoNotice } from "@/components/showcase/todo-notice"
 import { DEMO_LOADERS } from "@/lib/showcase/demo-loaders"
 import { COMPONENT_REGISTRY, getComponentEntry } from "@/lib/showcase/registry"
+import { isInRegistry } from "@/lib/showcase/registry-membership"
 
 interface ComponentPageProps {
   params: Promise<{ slug: string }>
@@ -27,7 +28,17 @@ export default async function ComponentPage({ params }: Readonly<ComponentPagePr
     return <TodoNotice title={entry.title} description={entry.description} slug={entry.slug} />
   }
 
-  const { demo, code, dos, donts } = await loadDemo()
+  const { demo, code, dos, donts, examples } = await loadDemo()
 
-  return <ComponentDetail entry={entry} demo={demo} code={code} dos={dos} donts={donts} />
+  return (
+    <ComponentDetail
+      entry={entry}
+      demo={demo}
+      code={code}
+      dos={dos}
+      donts={donts}
+      examples={examples}
+      inRegistry={isInRegistry(slug)}
+    />
+  )
 }
