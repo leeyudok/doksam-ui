@@ -22,6 +22,10 @@ jobs:
       # registry.json 수정 후 재생성을 깜빡한 드리프트를 잡는 게이트.
       - run: pnpm registry:build && pnpm gen:llms
       - run: git diff --exit-code -- public/r public/llms.txt
+      # ko-catalog.json(extract.mjs 산출 — 번역 대상 키 목록)도 같은 방식으로 검증한다.
+      # t() 호출을 고치고 재생성을 깜빡하면 messages.test.ts 의 누락 검사 기준이 낡는다.
+      - run: node scripts/i18n/extract.mjs
+      - run: git diff --exit-code -- scripts/i18n/ko-catalog.json
 
   e2e:
     runs-on: ubuntu-latest

@@ -17,7 +17,10 @@ export const LOCALE_LABEL: Record<Locale, string> = {
 };
 
 // ko 는 코드 인라인 원문이 SSOT — 메시지 파일이 없다.
-// en/ja/zh/es 스냅샷은 번역 DB 에서 생성해 레포에 커밋한다(빌드/CI 는 이 JSON 만 사용).
+// en/ja/zh/es 는 이 레포에 커밋된 JSON 이 진실원천이다(#73). 정적 import 라 번들에
+// 인라인되고 런타임에 외부 조회가 없다 — 폐쇄망 원칙과 일관된다. 번역을 추가·수정할
+// 때는 네 파일을 직접 고치면 되고, 대상 키 목록은 scripts/i18n/extract.mjs 가 코드에서
+// 뽑아 두는 scripts/i18n/ko-catalog.json 에서 확인한다.
 const MESSAGES: Record<Exclude<Locale, "ko">, Record<string, string>> = { en, ja, zh, es };
 
 export function isLocale(v: string): v is Locale {
