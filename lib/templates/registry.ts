@@ -5,6 +5,7 @@ import {
   GraduationCapIcon,
   BugIcon,
   GraphIcon,
+  MagnifyingGlassIcon,
   NewspaperIcon,
   ChartLineUpIcon,
   ChartPieSliceIcon,
@@ -173,5 +174,14 @@ export const TEMPLATE_REGISTRY: TemplateEntry[] = [
       "프로젝트 에이전트 인프라 문서 34개를 7개 타입·관계로 엮은 온톨로지. 같은 데이터를 사전(검색·타입 칩·하이라이트)과 결정론적 force 레이아웃 SVG 그래프(이웃 강조·참조/피참조 상세 패널) 두 탭으로 탐색합니다.",
     stack: ["tabs", "svg-graph", "search-filter", "detail-panel"],
     icon: TreeStructureIcon,
+  },
+  {
+    href: "/templates/rag-search",
+    title: "RAG Search Console",
+    profile: "admin 프로필 · Slate · Geist",
+    description:
+      "하이브리드 검색으로 근거를 찾고 그 근거로 답변을 만드는 RAG 콘솔. BM25·벡터·rerank 점수 분해, 문장별 인용과 원문 청크 연결, 색인 파이프라인·인덱스 상태를 세 탭으로 묶었습니다.",
+    stack: ["tabs", "contribution-bars", "stage-progress-board", "log-viewer"],
+    icon: MagnifyingGlassIcon,
   },
 ]

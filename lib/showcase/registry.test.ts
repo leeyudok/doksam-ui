@@ -25,6 +25,7 @@ const MANUAL_ENTRY_SLUGS = [
   "tooltip-icon-button",
   "kebab-menu",
   "table-sortable",
+  "table-toggle",
   "date-picker",
   "date-range-picker",
   "multi-select",

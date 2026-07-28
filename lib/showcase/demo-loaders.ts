@@ -44,6 +44,7 @@ export const DEMO_LOADERS: Record<string, DemoLoader> = {
   breadcrumb: () => import("@/components/demos/breadcrumb.demo"),
   "navigation-menu": () => import("@/components/demos/navigation-menu.demo"),
   "table-sortable": () => import("@/components/demos/table-sortable.demo"),
+  "table-toggle": () => import("@/components/demos/table-toggle.demo"),
   dialog: () => import("@/components/demos/dialog.demo"),
   "alert-dialog": () => import("@/components/demos/alert-dialog.demo"),
   sheet: () => import("@/components/demos/sheet.demo"),

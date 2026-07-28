@@ -492,6 +492,15 @@ export const COMPONENT_REGISTRY: ComponentEntry[] = [
       "고정 헤더+스크롤 바디, 컬럼 정렬, 행 드래그 재정렬, 컬럼 표시/숨김 토글을 갖춘 제네릭 데이터 그리드입니다(tossinvest 이식, #24).",
     status: "done",
   },
+  {
+    slug: "table-toggle",
+    title: "Table Toggle",
+    category: "data",
+    layer: "composition",
+    description:
+      "행마다 on/off Switch가 붙은 관리자용 테이블입니다. 낙관적 업데이트, 실패 롤백+사유 표시, 행 단위 진행 상태, data 재조정을 지원합니다(#69).",
+    status: "done",
+  },
 
   // ── Chat ──────────────────────────────────────────────
   {

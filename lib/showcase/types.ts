@@ -32,6 +32,13 @@ export const COMPONENT_LAYER_LABEL: Record<ComponentLayer, string> = {
   composition: "Composition",
 }
 
+/** 컴포넌트 상세의 이름 붙은 예제 하나 (variant/size/state 등). */
+export interface DemoExample {
+  name: string
+  demo: ReactNode
+  code: string
+}
+
 /**
  * components/demos/<slug>.demo.tsx 가 export 하는 데모 모듈 컨벤션.
  * - demo: 라이브 데모 JSX (현재 선택된 프리셋 토큰으로 렌더링됨)
@@ -43,6 +50,8 @@ export interface ComponentDemoModule {
   code: string
   dos: string[]
   donts: string[]
+  /** 있으면 상세 페이지가 이름 붙은 예제 그리드로 렌더, 없으면 단일 demo 폴백. */
+  examples?: DemoExample[]
 }
 
 export const COMPONENT_CATEGORY_LABEL: Record<ComponentCategory, string> = {

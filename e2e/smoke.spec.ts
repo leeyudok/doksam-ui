@@ -24,6 +24,7 @@ const ROUTES = [
   "/templates/elearning",
   "/templates/company-intel",
   "/templates/knowledge-base",
+  "/templates/rag-search",
 ];
 
 // 페이지 자체 결함이 아닌 것으로 알려진 콘솔 노이즈만 최소한으로 화이트리스트한다.
