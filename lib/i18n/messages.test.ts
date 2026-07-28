@@ -40,6 +40,20 @@ describe("i18n 메시지 스냅샷 정합성", () => {
     }
   })
 
+  it("ko 카탈로그의 모든 키가 4개 로케일에 번역돼 있다 (누락 감지)", async () => {
+    // ko 는 코드 인라인 원문이 SSOT 이고, extract.mjs 가 그 원문을 ko-catalog.json 으로
+    // 뽑는다. 새 t() 호출을 추가하고 번역을 빠뜨리는 것이 가장 흔한 누락 경로인데,
+    // 위 "레지스트리 전 항목" 테스트는 카탈로그 항목의 description 만 보고 chrome.* 같은
+    // 나머지 키는 보지 않는다. 여기서 카탈로그 전체를 기준으로 검사한다.
+    const ko: Record<string, string> = (await import("@/scripts/i18n/ko-catalog.json")).default
+    const koKeys = Object.keys(ko)
+    expect(koKeys.length).toBeGreaterThan(0)
+    for (const [locale, msgs] of Object.entries(ALL)) {
+      const missing = koKeys.filter((k) => !(k in msgs))
+      expect(missing, `${locale} 번역 누락 ${missing.length}건`).toEqual([])
+    }
+  })
+
   it("플레이스홀더가 ko 카탈로그와 일치한다", async () => {
     const ko: Record<string, string> = (await import("@/scripts/i18n/ko-catalog.json")).default
     const holes = (s: string) => [...s.matchAll(/\{(\w+)\}/g)].map((m) => m[1]).sort()
