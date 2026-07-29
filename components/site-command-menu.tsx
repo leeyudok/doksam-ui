@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
+  BlueprintIcon,
   BooksIcon,
   CubeIcon,
   HouseIcon,
@@ -36,6 +37,7 @@ const PAGES = [
   { href: "/components", label: "Components", icon: CubeIcon },
   { href: "/patterns", label: "Patterns", icon: SquaresFourIcon },
   { href: "/templates", label: "Templates", icon: StackIcon },
+  { href: "/wireframe", label: "Wireframe", icon: BlueprintIcon },
   { href: "/rules", label: "Rules", icon: BooksIcon },
 ];
 
