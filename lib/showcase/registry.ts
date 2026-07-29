@@ -854,6 +854,14 @@ export const COMPONENT_REGISTRY: ComponentEntry[] = [
     status: "done",
   },
   {
+    slug: "scroll-stack",
+    title: "Scroll Stack",
+    category: "layout",
+    layer: "composition",
+    description: "스크롤에 따라 카드가 상단에 핀 고정되며 겹겹이 쌓이는 스크롤 연동 스택입니다. scale·회전·블러 강도를 props 로 조절합니다.",
+    status: "done",
+  },
+  {
     slug: "signal-card",
     title: "Signal Card",
     category: "finance",

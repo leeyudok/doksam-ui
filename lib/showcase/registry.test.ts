@@ -37,6 +37,7 @@ const MANUAL_ENTRY_SLUGS = [
   "circular-progress",
   "banner",
   "code-block",
+  "scroll-stack",
   "tree-view",
   "relation-network",
   "risk-core-map",

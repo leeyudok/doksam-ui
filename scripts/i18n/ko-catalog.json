@@ -129,6 +129,7 @@
   "component.scenario-simulator.description": "파라미터 선택에 따라 현재/시나리오/증가분 KPI 카드가 즉시 재계산되는 what-if 시나리오 시뮬레이터입니다.",
   "component.screen-help-dialog.description": "화면 제목 옆 (?) 버튼으로 여는 화면 매뉴얼 다이얼로그입니다(bizinfo 이식, #8).",
   "component.scroll-area.description": "커스텀 스크롤바를 가진 스크롤 영역입니다.",
+  "component.scroll-stack.description": "스크롤에 따라 카드가 상단에 핀 고정되며 겹겹이 쌓이는 스크롤 연동 스택입니다. scale·회전·블러 강도를 props 로 조절합니다.",
   "component.select.description": "커스텀 드롭다운으로 하나의 값을 선택합니다.",
   "component.separator.description": "콘텐츠 사이를 구분하는 선입니다.",
   "component.sheet.description": "화면 가장자리에서 슬라이드로 열리는 패널입니다.",

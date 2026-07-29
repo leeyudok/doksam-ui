@@ -132,6 +132,7 @@
   "component.scenario-simulator.description": "パラメータの選択に応じて現在/シナリオ/増減のKPIカードが即座に再計算されるWhat-ifシナリオシミュレーターです。",
   "component.screen-help-dialog.description": "画面タイトル横の (?) ボタンで開く画面マニュアルダイアログです（bizinfo 移植、#8）。",
   "component.scroll-area.description": "カスタムスクロールバーを持つスクロール領域です。",
+  "component.scroll-stack.description": "スクロールに合わせてカードが上部にピン留めされ、重なって積み上がるスクロール連動スタックです。scale・回転・ブラーの強さを props で調整します。",
   "component.select.description": "カスタムドロップダウンで1つの値を選択します。",
   "component.separator.description": "コンテンツ間を区切る線です。",
   "component.sheet.description": "画面端からスライドで開くパネルです。",
