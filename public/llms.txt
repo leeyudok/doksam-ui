@@ -20,6 +20,14 @@ registryDependencies: badge
 
 npm dependencies: class-variance-authority
 
+### Scroll Stack (`scroll-stack`)
+
+스크롤에 따라 카드가 상단에 핀 고정되며 겹겹이 쌓이는 스크롤 연동 스택 컴포넌트. Lenis 등 외부 의존성 없이 네이티브 스크롤 + rAF 로 동작한다.
+
+```
+npx shadcn add https://ui.doksam.com/r/scroll-stack.json
+```
+
 ### Copy Button (`copy-button`)
 
 navigator.clipboard로 텍스트를 복사하고 잠깐 "복사됨" 피드백을 보여주는 버튼.

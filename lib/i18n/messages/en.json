@@ -132,6 +132,7 @@
   "component.scenario-simulator.description": "A what-if scenario simulator where current/scenario/delta KPI cards recalculate instantly as parameters change.",
   "component.screen-help-dialog.description": "A screen manual dialog opened via a (?) button next to the screen title (ported from bizinfo, #8).",
   "component.scroll-area.description": "A scroll area with a custom scrollbar.",
+  "component.scroll-stack.description": "A scroll-linked stack where cards pin to the top and pile up as you scroll. Scale, rotation and blur intensity are adjustable via props.",
   "component.select.description": "Selects a single value via a custom dropdown.",
   "component.separator.description": "A line that divides content.",
   "component.sheet.description": "A panel that slides open from a screen edge.",

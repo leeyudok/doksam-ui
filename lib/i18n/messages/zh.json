@@ -132,6 +132,7 @@
   "component.scenario-simulator.description": "根据参数选择即时重新计算当前/情景/增量 KPI 卡片的 what-if 情景模拟器。",
   "component.screen-help-dialog.description": "通过屏幕标题旁 (?) 按钮打开的屏幕操作手册对话框（从 bizinfo 移植，#8）。",
   "component.scroll-area.description": "带自定义滚动条的滚动区域。",
+  "component.scroll-stack.description": "随滚动将卡片依次固定在顶部并层层堆叠的滚动联动堆栈。可通过 props 调整缩放、旋转和模糊强度。",
   "component.select.description": "通过自定义下拉菜单选择单个值。",
   "component.separator.description": "用于分隔内容之间的分割线。",
   "component.sheet.description": "从屏幕边缘滑出的面板。",

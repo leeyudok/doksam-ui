@@ -132,6 +132,7 @@
   "component.scenario-simulator.description": "Simulador de escenarios what-if cuyas tarjetas KPI de actual/escenario/variación se recalculan al instante según los parámetros seleccionados.",
   "component.screen-help-dialog.description": "Diálogo de manual de pantalla que se abre con el botón (?) junto al título de la pantalla (portado de bizinfo, #8).",
   "component.scroll-area.description": "Área de scroll con scrollbar personalizada.",
+  "component.scroll-stack.description": "Una pila vinculada al scroll donde las tarjetas se fijan arriba y se apilan al desplazarse. La escala, rotación y desenfoque se ajustan por props.",
   "component.select.description": "Selecciona un valor mediante un dropdown personalizado.",
   "component.separator.description": "Línea que separa secciones de contenido.",
   "component.sheet.description": "Panel que se abre deslizándose desde el borde de la pantalla.",
