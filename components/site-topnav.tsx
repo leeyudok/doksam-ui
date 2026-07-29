@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
+  BlueprintIcon,
   BooksIcon,
   CubeIcon,
   DiamondsFourIcon,
@@ -70,6 +71,7 @@ const GROUPS: NavGroup[] = [
       { key: "components", href: "/components", label: "Components", icon: CubeIcon, description: "프리미티브 + 조합 컴포넌트" },
       { key: "patterns", href: "/patterns", label: "Patterns", icon: SquaresFourIcon, description: "화면 단위 조합 패턴" },
       { key: "templates", href: "/templates", label: "Templates", icon: StackIcon, description: "풀 앱 스캐폴드 템플릿" },
+      { key: "wireframe", href: "/wireframe", label: "Wireframe", icon: BlueprintIcon, description: "드래그앤드랍 와이어프레임 빌더" },
     ],
   },
 ];
