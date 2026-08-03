@@ -139,7 +139,7 @@ export const DATAVIZ_SAMPLES: PatternSampleData[] = [
             </span>
             <div className="h-2.5 flex-1 rounded bg-secondary">
               <div
-                className="h-2.5 rounded bg-primary transition-all duration-300"
+                className="h-2.5 rounded bg-primary transition-[width] duration-300"
                 style={{ width: `${(item.value / REGION_MAX) * 100}%` }}
               />
             </div>
@@ -154,7 +154,7 @@ export const DATAVIZ_SAMPLES: PatternSampleData[] = [
       <span className="min-w-[60px] max-w-[120px] truncate text-xs">{item.label}</span>
       <div className="h-2.5 flex-1 rounded bg-secondary">
         <div
-          className="h-2.5 rounded bg-primary transition-all duration-300"
+          className="h-2.5 rounded bg-primary transition-[width] duration-300"
           style={{ width: \`\${(item.value / max) * 100}%\` }}
         />
       </div>

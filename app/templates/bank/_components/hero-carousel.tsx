@@ -81,7 +81,7 @@ export function HeroCarousel() {
             aria-label={`${index + 1}번째 배너: ${slide.title}`}
             onClick={() => api?.scrollTo(index)}
             className={cn(
-              "h-2 rounded-full transition-all",
+              "h-2 rounded-full transition-[width,background-color]",
               current === index ? "w-6 bg-primary" : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50",
             )}
           />

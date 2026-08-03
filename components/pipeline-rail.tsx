@@ -83,7 +83,7 @@ function PipelineRail({
               >
                 <span
                   className={cn(
-                    "grid size-7 place-items-center rounded-full text-[10px] font-extrabold tabular-nums transition-all",
+                    "grid size-7 place-items-center rounded-full text-[10px] font-extrabold tabular-nums transition-colors",
                     active
                       ? "bg-primary text-primary-foreground"
                       : excluded
@@ -134,7 +134,7 @@ function PipelineRail({
                   type="button"
                   onClick={() => onTabChange?.(tab.key)}
                   className={cn(
-                    "cursor-pointer whitespace-nowrap rounded-lg border px-3.5 py-1.5 text-xs font-semibold transition-all",
+                    "cursor-pointer whitespace-nowrap rounded-lg border px-3.5 py-1.5 text-xs font-semibold transition-[color,background-color,border-color,box-shadow]",
                     active
                       ? "border-primary/25 bg-card font-bold text-primary shadow-sm"
                       : "border-transparent text-muted-foreground hover:bg-card hover:text-foreground",

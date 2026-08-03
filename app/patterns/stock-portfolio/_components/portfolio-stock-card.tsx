@@ -32,7 +32,7 @@ const SIGNAL_TONE: Record<"danger" | "warning" | "success", string> = {
  */
 export function PortfolioStockCard({ stock }: Readonly<{ stock: PortfolioStock }>) {
   return (
-    <Card className="py-0 transition-all hover:shadow-md">
+    <Card className="py-0 transition-shadow hover:shadow-md">
       <CardContent className="px-3 py-2.5">
         {/* 헤더: 종목명 + 코드 + 시그널 배지 + 추적/마켓/NXT + ⋯ 메뉴 */}
         <div className="mb-1.5 flex items-center justify-between">
