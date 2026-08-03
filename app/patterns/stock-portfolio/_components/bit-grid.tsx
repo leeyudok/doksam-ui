@@ -205,7 +205,7 @@ export function BitGrid({
                 <div
                   className={cn(
                     "flex cursor-help items-center justify-center border-y font-mono select-none",
-                    "transition-all hover:z-10 hover:scale-110",
+                    "transition-transform hover:z-10 hover:scale-110",
                     isOn
                       ? cn(
                           onColor,

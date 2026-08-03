@@ -57,7 +57,7 @@ export function RecommendationCard({ item }: Readonly<{ item: Recommendation }>)
         <div className="h-1.5 w-full rounded-full bg-muted">
           <div
             className={cn(
-              "h-full rounded-full transition-all",
+              "h-full rounded-full transition-[width]",
               item.conviction >= 60 ? "bg-success" : item.conviction >= 40 ? "bg-warning" : "bg-destructive",
             )}
             style={{ width: `${Math.min(item.conviction, 100)}%` }}

@@ -66,6 +66,28 @@ export const RULES_SECTIONS: RulesSection[] = [
     ],
   },
   {
+    title: "모션 · 애니메이션",
+    items: [
+      "애니메이션할 속성을 반드시 명시한다 — transition-all을 쓰지 않는다. 상태 피드백은 transition-colors, 위치·크기 변화는 transition-transform, 페이드는 transition-opacity를 쓰고, 비레이아웃 속성 여러 개가 동시에 바뀌면 Tailwind 기본 transition 유틸이나 transition-[color,background-color,box-shadow]처럼 목록을 좁혀 적는다. transition-all은 레이아웃 속성까지 전환 대상에 넣어 예기치 않은 리플로우를 만든다(components/ui/ 아래 shadcn 원본은 수정 금지 대상이므로 예외).",
+      "진행률 바처럼 레이아웃 속성 애니메이션이 불가피하면 transition-[width]처럼 그 속성만 명시한다 — 리플로우를 감수하는 지점이 코드에 드러나야 한다. 그 외에는 합성 단계에서 끝나는 transform·opacity를 우선한다.",
+      "duration은 100/200/300ms 스케일만 쓴다 — hover·focus 등 즉각 피드백은 duration-100, 일반 상태 전환은 duration-200, 진입·퇴장이나 진행률처럼 눈으로 따라가는 변화는 duration-300. duration-[450ms] 같은 임의 값을 새로 만들지 않는다.",
+      "커스텀 keyframes를 넣는 컴포넌트는 @media (prefers-reduced-motion: reduce)에서 animation: none으로 멈춘다. JS로 구동하는 모션은 matchMedia(\"(prefers-reduced-motion: reduce)\")를 확인해 변환 자체를 걸지 않는다 — components/scroll-stack.tsx, components/relation-network.tsx가 레퍼런스다.",
+      "진입 애니메이션의 scale을 0에서 시작하지 않는다 — shadcn animate-in 프리셋처럼 zoom-in-95(최종 크기의 95%)에서 출발해 팝오버·다이얼로그가 튀어나오지 않게 한다.",
+      "무한 반복 애니메이션(animate-spin·animate-pulse·animate-ping)은 로딩·실시간 갱신 등 '지금 진행 중'을 알리는 용도로만 쓴다 — 정적 콘텐츠 강조에 쓰지 않는다.",
+    ],
+  },
+  {
+    title: "접근성",
+    items: [
+      "아이콘만 있는 버튼·링크에는 접근 가능한 이름을 준다 — aria-label을 붙이거나 sr-only 텍스트를 넣는다. 옆에 텍스트가 이미 있는 장식용 아이콘은 aria-hidden으로 중복 낭독을 막는다.",
+      "포커스 표시를 제거하지 않는다 — outline-none만 남기지 말고 shadcn 프리미티브의 focus-visible:ring-*을 유지한다. 커스텀 인터랙티브 요소도 키보드 포커스가 눈에 보여야 한다.",
+      "텍스트와 배경의 명도대비는 WCAG AA를 만족한다(본문 4.5:1, 18px↑ 또는 굵은 텍스트 3:1) — text-muted-foreground를 더 흐리게 덮어쓰거나 opacity-*로 본문을 죽이지 않는다. 새 테마 프리셋을 추가할 때는 라이트·다크 양쪽에서 확인한다.",
+      "색만으로 정보를 전달하지 않는다 — 시세 등락(--gain/--loss)·상태 배지 등은 색과 함께 부호·아이콘·텍스트 라벨을 같이 준다(색각 이상·흑백 출력 대응).",
+      "상호작용 요소는 시맨틱 태그로 만든다 — 클릭 가능한 div 대신 button/a를 쓰고, 탭·아코디언 등 복합 위젯은 role과 상태 속성(aria-selected, aria-expanded)을 함께 노출한다.",
+      "폼 입력에는 연결된 label을 준다 — placeholder를 label 대용으로 쓰지 않는다(입력을 시작하면 사라져 맥락이 소실된다).",
+    ],
+  },
+  {
     title: "폐쇄망 대응",
     items: [
       "금융권 등 폐쇄망 배포를 전제로 모든 리소스(폰트·아이콘·스크립트·스타일)를 self-host한다 — 빌드·런타임에 외부 CDN이나 외부 URL fetch가 없어야 한다.",
@@ -129,6 +151,9 @@ export const RULES_SECTIONS: RulesSection[] = [
       "[ ] 폰트·리소스 전부 셀프호스팅 (외부 CDN 0건).",
       "[ ] 빌드 산출물 외부 리소스 부재를 자동 테스트로 실증 (test/closed-network.test.ts, test/sourcemap.test.ts).",
       "[ ] 새 페이지에 loading/error 동반, 상태 UI는 ui.doksam.com/patterns/state 를 따른다.",
+      "[ ] transition-all 0건(components/ui/ shadcn 원본 제외), duration은 100/200/300 스케일만.",
+      "[ ] 커스텀 애니메이션은 prefers-reduced-motion: reduce 에서 정지 — 자동 테스트로 실증 (test/motion-rules.test.ts).",
+      "[ ] 아이콘 단독 버튼에 접근 가능한 이름, 포커스 표시 유지, 본문 명도대비 WCAG AA.",
       "[ ] TypeScript strict·any 0건, Sonar Quality Gate 통과.",
     ],
   },

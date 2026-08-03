@@ -131,6 +131,7 @@ export const donts = ["...", "..."]  // 2~3개 권장
 | `lib/showcase/demo-loaders.test.ts` | `status: "done"` 항목만 로더 등록 |
 | `test/closed-network.test.ts` | 프로덕션 산출물에 외부 `<script src>`/`<link href>`/CSS `url()`/CDN 힌트 0건 |
 | `test/sourcemap.test.ts` | 프로덕션 청크에 sourcemap 부재 |
+| `test/motion-rules.test.ts` | 소스에 `transition-all` 0건(`components/ui/` 제외) · `duration` 은 100/200/300 스케일만 · `@keyframes` 정의 파일은 `prefers-reduced-motion` 처리 |
 | `profiles/index.test.ts` | 프로필이 참조하는 theme/font 가 실재하는지 |
 | `lib/profile-css.test.ts` | 프로필 CSS 방출(`data-theme`/`data-font`/`data-density`/`--radius`) 형태 |
 

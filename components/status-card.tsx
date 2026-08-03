@@ -43,7 +43,7 @@ export function StatusCard({ name, status, variant, percent, percentLabel = "가
             <span className="font-medium tabular-nums">{percent}%</span>
           </div>
           <div className="h-1.5 rounded-full bg-secondary">
-            <div className={cn("h-1.5 rounded-full transition-all", BAR_COLORS[variant])} style={{ width: `${percent}%` }} />
+            <div className={cn("h-1.5 rounded-full transition-[width]", BAR_COLORS[variant])} style={{ width: `${percent}%` }} />
           </div>
         </div>
       </CardContent>

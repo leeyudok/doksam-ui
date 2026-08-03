@@ -143,7 +143,7 @@ export function IconPicker({ value, onSelect, placeholder = "아이콘 선택…
                   title={`${name}\n${alias}`}
                   aria-pressed={value === name}
                   className={cn(
-                    "flex flex-col items-center justify-center gap-1 rounded-md p-1.5 text-center transition-all",
+                    "flex flex-col items-center justify-center gap-1 rounded-md p-1.5 text-center transition-[color,background-color,transform]",
                     value === name
                       ? "bg-primary text-primary-foreground hover:bg-primary/90"
                       : "text-foreground hover:scale-110 hover:bg-accent hover:text-accent-foreground",

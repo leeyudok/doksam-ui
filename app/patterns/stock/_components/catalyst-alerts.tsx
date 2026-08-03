@@ -75,7 +75,7 @@ function CatalystRow({ item }: Readonly<{ item: Catalyst }>) {
       </div>
       <div className="flex items-center gap-2">
         <div className="h-1.5 flex-1 rounded bg-secondary">
-          <div className={`h-1.5 rounded transition-all ${strengthBarClass(item.strength)}`} style={{ width: `${item.strength}%` }} />
+          <div className={`h-1.5 rounded transition-[width] ${strengthBarClass(item.strength)}`} style={{ width: `${item.strength}%` }} />
         </div>
         <span className="w-6 text-right text-[9px] text-muted-foreground tabular-nums">{item.strength}</span>
       </div>
